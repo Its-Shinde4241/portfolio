@@ -1,6 +1,5 @@
 import { rubik80sFade, ubuntuMono } from "@/lib/googleFonts";
 import { Button } from "./ui/button";
-import { projects } from "../assets/projects";
 import React, { useRef, useEffect, useState } from "react";
 import { Card } from "./Card";
 import { Badge } from "./ui/badge";
@@ -24,6 +23,62 @@ function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Then export the projects array
+  const projects: project[] = [
+    {
+      name: "Wellyfy Pro",
+      description:
+        "A smart, intuitive healthcare web application built to <strong> bridge </strong> the gap between <strong> patients </strong>  and <strong> doctors </strong>.",
+      technologies: [
+        "React",
+        "Javascript",
+        "Node.js",
+        "MongoDB",
+        "Socket.io",
+        "tensorFlow",
+        "Python",
+      ],
+      url: null,
+      timestamp: "Mar.2025",
+      template: "web-App",
+      github: "https://github.com/Its-Shinde4241/Wellify",
+      homepage: "/projectPreviews/Wellify.png",
+    },
+    {
+      name: "Sr-Jr Connect",
+      description:
+        "Developed a student networking platform connecting <strong>juniors</strong> and <strong>seniors </strong> for academic mentorship.Implemented encrypted, <strong>real-time</strong> messaging and secure data handling .",
+      technologies: ["React", "MongoDB", "Crypto.js", "Express", "Socket.io"],
+      url: "https://sr-jr-connect.onrender.com/",
+      timestamp: "Jan.2025 - Feb.2025",
+      template: "Web-App",
+      github: "https://github.com/Its-Shinde4241/Sr-Jr-connect",
+      homepage: "/projectPreviews/SrJr.png",
+    },
+    {
+      name: "Chit-Chat Web",
+      description:
+        "Built a fully functional <strong>real-time</strong> messaging platform using the <strong> MERN </strong> stack.Integrated user authentication and user profile management .",
+      technologies: ["Python", "FastAPI", "OpenAI API", "PostgreSQL", "Docker"],
+      url: "https://chitchat-kds1.onrender.com/",
+      timestamp: "Dec 2024",
+      template: "web-app",
+      github: "https://github.com/Its-Shinde4241/Chatting-Messaging--Website",
+      homepage: "/projectPreviews/ChitChat.png",
+    },
+    {
+      name: "Sodoku Game",
+      description:
+        "A simple game created using <strong>java GUI</strong> and core java backend to create and solve <strong>different levels</strong> of sudoku .",
+      technologies: ["Java", "GUI", "Intellij"],
+      url: null,
+      timestamp: "Apr.2025",
+      template: "Core Java",
+      github: "https://github.com/Its-Shinde4241/Sudoku-Java",
+      homepage: "/projectPreviews/Sudoku.png",
+    },
+  ];
 
   useEffect(() => {
     const checkMobile = () => {
@@ -198,10 +253,14 @@ function Projects() {
                   >
                     <strong>{project.name}</strong>
                   </h3>
+                  <h2 className="text-foreground/60 text-sm">
+                    {project.timestamp}
+                  </h2>
+                  <hr className="border-foreground/20 mb-3" />
 
                   {/* Project Description */}
                   <div
-                    className="text-xs text-gray-600 dark:text-gray-400 mb-3 line-clamp-2"
+                    className="text-xs text-gray-600 dark:text-gray-400 mb-3 line-clamp-4"
                     dangerouslySetInnerHTML={{
                       __html: project.description || "No description available",
                     }}
@@ -395,9 +454,14 @@ function Projects() {
                             <strong>{project.name}</strong>
                           </motion.h3>
 
+                          <h2 className="text-foreground/60 text-sm">
+                            {project.timestamp}
+                          </h2>
+                          <hr className="border-foreground/20 mb-3" />
+
                           {/* Project Description */}
                           <div
-                            className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-3"
+                            className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-5"
                             dangerouslySetInnerHTML={{
                               __html:
                                 project.description ||
