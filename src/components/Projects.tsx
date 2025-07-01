@@ -43,7 +43,7 @@ function Projects() {
       timestamp: "Mar.2025",
       template: "web-App",
       github: "https://github.com/Its-Shinde4241/Wellify",
-      homepage: "/projectPreviews/Wellify.png",
+      homepage: "/Wellify.png",
     },
     {
       name: "Sr-Jr Connect",
@@ -54,7 +54,7 @@ function Projects() {
       timestamp: "Jan.2025 - Feb.2025",
       template: "Web-App",
       github: "https://github.com/Its-Shinde4241/Sr-Jr-connect",
-      homepage: "/projectPreviews/SrJr.png",
+      homepage: "/SrJr.png",
     },
     {
       name: "Chit-Chat Web",
@@ -65,7 +65,7 @@ function Projects() {
       timestamp: "Dec 2024",
       template: "web-app",
       github: "https://github.com/Its-Shinde4241/Chatting-Messaging--Website",
-      homepage: "/projectPreviews/ChitChat.png",
+      homepage: "/ChitChat.png",
     },
     {
       name: "Sodoku Game",
@@ -76,7 +76,7 @@ function Projects() {
       timestamp: "Apr.2025",
       template: "Core Java",
       github: "https://github.com/Its-Shinde4241/Sudoku-Java",
-      homepage: "/projectPreviews/Sudoku.png",
+      homepage: "/Sudoku.png",
     },
   ];
 
