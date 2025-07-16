@@ -122,10 +122,10 @@ export default function About() {
                   <strong className="text-primary">FastApi</strong>, and{" "}
                   <strong className="text-primary">Express</strong>. I can
                   quickly adapt to new frameworks and languages, and I enjoy
-                  learning new technologies. In my free time, I delve into{" "}
-                  <strong className="text-primary">computers</strong> and{" "}
-                  <strong className="text-primary">networking</strong> to expand
-                  my knowledge in low-level programming.
+                  learning new technologies. In my free time, I love creating{" "}fun {" "}
+                  <strong className="text-primary">Projects</strong> and{" "} solving {" "}
+                  <strong className="text-primary">DSA problems</strong> to expand
+                  my knowledge in Development and problem solving.
                 </p>
                 <hr className="my-3 sm:my-4" />
                 <p>

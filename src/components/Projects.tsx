@@ -101,11 +101,10 @@ function Projects() {
       const containerRect = container.getBoundingClientRect();
       const cardRect = card.getBoundingClientRect();
 
-      const containerCenter = containerRect.width / 2;
-      const cardCenter = cardRect.width / 2;
-      const cardLeft = card.offsetLeft;
+      const containerCenter = containerRect.left + containerRect.width / 2;
+      const cardCenter = cardRect.left + cardRect.width / 2;
 
-      const scrollLeft = cardLeft - containerCenter + cardCenter;
+      const scrollLeft = container.scrollLeft + (cardCenter - containerCenter);
 
       container.scrollTo({
         left: scrollLeft,
@@ -351,7 +350,7 @@ function Projects() {
         </motion.span>
 
         {/* Container for project cards */}
-        <div className=" w-[90%] md:w-full max-w-7xl mx-auto px-2 sm:px-4">
+        <div className=" w-[90%] md:w-full max-w-7xl mx-auto sm:px-4">
           <div className="flex items-center justify-center my-10 sm:my-16 md:my-20">
             {/* Navigation dots */}
             <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex gap-1 sm:gap-2 z-10">
@@ -488,11 +487,6 @@ function Projects() {
                                 </Badge>
                               </motion.div>
                             ))}
-                            {/* {project.technologies.length > 4 && (
-                              <Badge variant="outline" className="bg-foreground/10 text-xs px-2 py-1">
-                                +{project.technologies.length - 4}
-                              </Badge>
-                            )} */}
                           </div>
 
                           <hr className="border-foreground/20 mb-3" />

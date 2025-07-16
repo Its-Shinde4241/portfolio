@@ -243,7 +243,6 @@ const MobileView = ({
           <button
             onClick={() => {
               scrollToElementSlow(`#${item.id}`);
-              setActiveSection(item.id);
             }}
             className={`transition-transform duration-300 cursor-pointer ${
               activeSection === item.id ? "scale-125 text-primary" : ""
@@ -251,6 +250,7 @@ const MobileView = ({
           >
             {item.svg}
           </button>
+
           <Badge
             className={`absolute -top-8 transition-all duration-300 ease-in-out bg-foreground/70 text-background mobile-navbar-badge
     ${

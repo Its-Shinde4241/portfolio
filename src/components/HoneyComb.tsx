@@ -49,8 +49,8 @@ const AnimatedHoneyComb: React.FC<AnimatedLinesProps> = ({
     const opts = {
       len: 30,
       count: 50,
-      baseTime: 10,
-      addedTime: 10,
+      baseTime: 30, 
+      addedTime: 20,
       dieChance: 0.05,
       spawnChance: 1,
       sparkChance: 0.1,
@@ -65,7 +65,6 @@ const AnimatedHoneyComb: React.FC<AnimatedLinesProps> = ({
       cy: size / 2,
       repaintAlpha: 0.02,
     };
-    
 
     const dieX = size / 2 / opts.len;
     const dieY = size / 2 / opts.len;

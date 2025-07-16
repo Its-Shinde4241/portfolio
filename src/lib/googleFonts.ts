@@ -8,6 +8,7 @@ import {
   Tilt_Prism,
   Orbitron,
   Audiowide,
+  Space_Grotesk,
 } from "next/font/google";
 
 const pirataOne = Pirata_One({
@@ -57,6 +58,13 @@ const audiowide = Audiowide({
   variable: "--font-audiowide",
   display: "swap",
 });
+
+const space_grotesk = Space_Grotesk({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-space-grotext",
+  display:"swap"
+});
 export {
   audiowide,
   pirataOne,
@@ -67,4 +75,5 @@ export {
   ubuntuMono,
   tiltprism,
   orbitron,
+  space_grotesk
 };
