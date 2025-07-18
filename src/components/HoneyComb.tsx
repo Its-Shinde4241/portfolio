@@ -48,12 +48,12 @@ const AnimatedHoneyComb: React.FC<AnimatedLinesProps> = ({
 
     const opts = {
       len: 30,
-      count: 50,
-      baseTime: 30, 
-      addedTime: 20,
-      dieChance: 0.05,
-      spawnChance: 1,
-      sparkChance: 0.1,
+      count: 100, 
+      baseTime: 10, 
+      addedTime: 10, 
+      dieChance: 0.03, 
+      spawnChance: 1, 
+      sparkChance: 0.15,
       sparkDist: 10,
       sparkSize: 2,
       baseLight: 50,
