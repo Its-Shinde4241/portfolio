@@ -134,7 +134,7 @@ export default function About() {
                     C, C++, Java, Python and JavaScript
                   </strong>
                   . On Codechef, I have achieved a 2-star rating with a maximum
-                  rating of 1532. <strong className="text-primary">C</strong>.
+                  rating of 1532.
                 </p>
                 <hr className="my-3 sm:my-4" />
                 <p>
