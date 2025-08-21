@@ -27,7 +27,7 @@ function Projects() {
   // Then export the projects array
   const projects: project[] = [
     {
-      name: "Wellyfy Pro",
+      name: "Wellify Pro",
       description:
         "A smart, intuitive healthcare web application built to <strong> bridge </strong> the gap between <strong> patients </strong>  and <strong> doctors </strong>.",
       technologies: [
@@ -66,17 +66,6 @@ function Projects() {
       template: "web-app",
       github: "https://github.com/Its-Shinde4241/Chatting-Messaging--Website",
       homepage: "/ChitChat.png",
-    },
-    {
-      name: "Sodoku Game",
-      description:
-        "A simple game created using <strong>java GUI</strong> and core java backend to create and solve <strong>different levels</strong> of sudoku .",
-      technologies: ["Java", "GUI", "Intellij"],
-      url: null,
-      timestamp: "Apr.2025",
-      template: "Core Java",
-      github: "https://github.com/Its-Shinde4241/Sudoku-Java",
-      homepage: "/Sudoku.png",
     },
   ];
 
