@@ -1,7 +1,6 @@
 import {
   kumarOneOutline,
   pirataOne,
-  space_grotesk,
   zenDots,
 } from "@/lib/googleFonts";
 import { TextDecrypt } from "./TextDecrypt";
@@ -92,12 +91,6 @@ export default function HomePage() {
               className={`${zenDots.className} text-4xl sm:text-5xl md:text-4xl lg:text-6xl pt-2 sm:pt-3`}
             />
           </div>
-          {/* <span>
-            <TextDecrypt
-              text="AIML Enthusiast"
-              className={`${space_grotesk.className} opacity-70 text-xl`}
-            />
-          </span> */}
 
           <p
             className={`${pirataOne.className} text-2xl sm:text-3xl md:text-3xl lg:text-6xl py-2 sm:py-3 opacity-30 select-none`}
