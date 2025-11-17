@@ -1,14 +1,12 @@
 import {
   kumarOneOutline,
   pirataOne,
-  space_grotesk,
   zenDots,
 } from "@/lib/googleFonts";
 import { TextDecrypt } from "./TextDecrypt";
 import { Card } from "./Card";
 import Link from "next/link";
 import React from "react";
-import AnimatedHoneyComb from "./HoneyComb";
 import Image from "next/image";
 
 interface Achievement {
@@ -93,10 +91,6 @@ export default function HomePage() {
             />
           </div>
           <span>
-            <TextDecrypt
-              text="AIML Enthusiast"
-              className={`${space_grotesk.className} opacity-70 text-xl`}
-            />
           </span>
 
           <p
@@ -141,9 +135,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className=" absolute rounded-2xl overflow-hidden">
-            <AnimatedHoneyComb className="rounded-2xl size-60 sm:size-96 overflow-hidden " />
-          </div>
+
 
           {/* Achievements below photo for small screens */}
           <div className="flex md:hidden gap-3 justify-center">

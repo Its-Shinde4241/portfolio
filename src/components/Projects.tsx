@@ -1,6 +1,6 @@
 import { rubik80sFade, ubuntuMono } from "@/lib/googleFonts";
 import { Button } from "./ui/button";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 import { Card } from "./Card";
 import { Badge } from "./ui/badge";
 import { motion } from "framer-motion";
@@ -26,6 +26,17 @@ function Projects() {
 
   // Then export the projects array
   const projects: project[] = [
+    {
+      name: "IntelliRoom",
+      description:
+        "A <strong>code editor</strong> and <strong>AI-powered project generator</strong> built with <strong>React (TypeScript)</strong> and <strong>Node.js</strong>. Includes authentication via Firebase (Email + Google). Features an in-browser editor with AI assistance.",
+      technologies: ["React", "TypeScript", "Node.js", "Firebase Auth", "MySQL/PostgreSQL", "Prisma"],
+      url: "https://intelli-room.vercel.app/",
+      timestamp: "july 2025",
+      template: "web-app",
+      github: "https://github.com/Its-Shinde4241/intelliroom", // replace if different
+      homepage: "/IntelliRoom.png"
+    },
     {
       name: "Wellify Pro",
       description:
@@ -67,6 +78,8 @@ function Projects() {
       github: "https://github.com/Its-Shinde4241/Chatting-Messaging--Website",
       homepage: "/ChitChat.png",
     },
+
+
   ];
 
   useEffect(() => {
@@ -79,7 +92,7 @@ function Projects() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const scrollToCard = (index: number) => {
+  const scrollToCard = useCallback((index: number) => {
     if (!scrollContainerRef.current || !cardRefs.current[index] || isMobile)
       return;
 
@@ -100,7 +113,7 @@ function Projects() {
         behavior: "smooth",
       });
     }
-  };
+  }, [isMobile]);
 
   useEffect(() => {
     if (isMobile) return;
@@ -144,7 +157,7 @@ function Projects() {
         container.removeEventListener("scroll", handleScroll);
       }
     };
-  }, [isMobile]);
+  }, [isMobile, scrollToCard]);
 
   const getDistance = (index: number) => {
     return Math.abs(index - activeIndex);
@@ -348,11 +361,10 @@ function Projects() {
                   type="button"
                   key={index}
                   onClick={() => handleCardClick(index)}
-                  className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-600 ${
-                    index === activeIndex
-                      ? "bg-primary scale-125"
-                      : "bg-gray-400 hover:bg-gray-600"
-                  }`}
+                  className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-600 ${index === activeIndex
+                    ? "bg-primary scale-125"
+                    : "bg-gray-400 hover:bg-gray-600"
+                    }`}
                   title={`Go to project ${index + 1}`}
                   aria-label={`Go to project ${index + 1}`}
                 />
@@ -407,11 +419,10 @@ function Projects() {
                   >
                     <motion.div className="h-full">
                       <Card
-                        className={`h-full rounded-sm overflow-hidden transition-all duration-600 ease-in-out ${
-                          isCenter
-                            ? "shadow-2xl border-zinc-400/50 cursor-default"
-                            : "shadow-md hover:shadow-lg"
-                        }`}
+                        className={`h-full rounded-sm overflow-hidden transition-all duration-600 ease-in-out ${isCenter
+                          ? "shadow-2xl border-zinc-400/50 cursor-default"
+                          : "shadow-md hover:shadow-lg"
+                          }`}
                       >
                         <div className="p-3 sm:p-4">
                           {/* Project embed */}

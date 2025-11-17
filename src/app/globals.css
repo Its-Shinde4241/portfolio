@@ -251,4 +251,14 @@ body::-webkit-scrollbar-thumb {
     animation: vibrate 0.8s step-end infinite;
   }
 
+  /* Hide scrollbar while maintaining scroll functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
 }

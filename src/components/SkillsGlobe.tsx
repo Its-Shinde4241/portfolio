@@ -108,7 +108,7 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({
       console.error("SVG icon load failed", err);
       setIsLoading(false);
     }
-  }, [skills, currTheme, createSkillIcon]);
+  }, [skills, createSkillIcon]);
 
   const animate = React.useCallback(() => {
     if (!sceneRef.current || !rendererRef.current || !cameraRef.current) return;
