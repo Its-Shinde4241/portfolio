@@ -50,6 +50,11 @@ type PixelatedCanvasProps = {
     fadeSpeed?: number;
 };
 
+// Add interface for HTMLImageElement with cleanup property
+interface ImageWithCleanup extends HTMLImageElement {
+    _cleanup?: () => void;
+}
+
 export const PixelatedCanvas: React.FC<PixelatedCanvasProps> = ({
     src,
     width = 400,
@@ -114,7 +119,7 @@ export const PixelatedCanvas: React.FC<PixelatedCanvasProps> = ({
         const canvas = canvasRef.current;
         if (!canvas) return;
 
-        const img = new Image();
+        const img = new Image() as ImageWithCleanup;
         img.crossOrigin = "anonymous";
         img.src = src;
 
@@ -242,7 +247,7 @@ export const PixelatedCanvas: React.FC<PixelatedCanvasProps> = ({
                         return [parseInt(m[1], 10), parseInt(m[2], 10), parseInt(m[3], 10)];
                     return null;
                 };
-                tintRGB = parse(tintColor) as any;
+                tintRGB = parse(tintColor);
             }
 
             for (let y = 0; y < offscreen.height; y += cellSize) {
@@ -498,7 +503,7 @@ export const PixelatedCanvas: React.FC<PixelatedCanvasProps> = ({
                 canvasEl.removeEventListener("pointerleave", onPointerLeave);
                 if (rafRef.current) cancelAnimationFrame(rafRef.current);
             };
-            (img as any)._cleanup = cleanup;
+            img._cleanup = cleanup;
         };
 
         img.onerror = () => {
@@ -515,13 +520,13 @@ export const PixelatedCanvas: React.FC<PixelatedCanvasProps> = ({
             return () => {
                 isCancelled = true;
                 window.removeEventListener("resize", onResize);
-                if ((img as any)._cleanup) (img as any)._cleanup();
+                if (img._cleanup) img._cleanup();
             };
         }
 
         return () => {
             isCancelled = true;
-            if ((img as any)._cleanup) (img as any)._cleanup();
+            if (img._cleanup) img._cleanup();
         };
     }, [
         src,

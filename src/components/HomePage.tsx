@@ -133,7 +133,7 @@ export default function HomePage() {
             dropoutStrength={0}
             interactive
             distortionStrength={0.1}
-            distortionRadius={80}
+            distortionRadius={450}
             distortionMode="attract"
             followSpeed={0.2}
             jitterStrength={15}
