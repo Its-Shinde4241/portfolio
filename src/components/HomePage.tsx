@@ -7,7 +7,7 @@ import { TextDecrypt } from "./TextDecrypt";
 import { Card } from "./Card";
 import Link from "next/link";
 import React from "react";
-import Image from "next/image";
+import { PixelatedCanvas } from "./ui/pixelated-canvas";
 
 interface Achievement {
   logo: React.JSX.Element;
@@ -121,20 +121,26 @@ export default function HomePage() {
         </div>
 
         {/* Right: Image */}
-        <div className="w-full md:w-1/3 flex flex-col items-center justify-center gap-6 relative">
-          <div className=" z-10 relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full  transition-transform duration-500 hover:scale-105 select-none">
-            <div className="absolute inset-0 rounded-full glow-ring">
-              <div className="absolute inset-0 rounded-full border-2 border-primary">
-                <Image
-                  src="/myImage.jpg"
-                  alt="Shubham Namdev Shinde - Web Developer"
-                  width={200}
-                  height={200}
-                  className="w-full h-full object-cover rounded-full select-none "
-                />
-              </div>
-            </div>
-          </div>
+        <div className="w-full md:w-1/2 flex flex-col items-center justify-center gap-6 relative">
+          <PixelatedCanvas
+            src="/myImage.jpg"
+            width={370}
+            height={470}
+            cellSize={3}
+            dotScale={1}
+            shape="circle"
+            backgroundColor="#000000"
+            dropoutStrength={0}
+            interactive
+            distortionStrength={0.1}
+            distortionRadius={80}
+            distortionMode="attract"
+            followSpeed={0.2}
+            jitterStrength={15}
+            jitterSpeed={1}
+            sampleAverage
+            className="rounded-sm shadow-lg"
+          />
 
 
           {/* Achievements below photo for small screens */}
