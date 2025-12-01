@@ -6,7 +6,7 @@ import { Intro } from "../components/Intro";
 import { Dock } from '../components/Dock';
 import { GrungeOverlay } from '../components/GrungeOverlay';
 import { TopRightConnect } from '../components/TopRightConnect';
-import { Home as HomeIcon, User, Map, Code2, Briefcase, FileText } from 'lucide-react';
+import { Home as HomeIcon, User, FileText, FolderOpen, Trophy } from 'lucide-react';
 import { NavItem } from '../types';
 
 // Import Section Components
@@ -95,9 +95,40 @@ export default function Home() {
   const navItems: NavItem[] = [
     { id: 'home', label: 'Home', icon: <HomeIcon size={22} /> },
     { id: 'about', label: 'About', icon: <User size={22} /> },
-    { id: 'journey', label: 'Journey', icon: <Map size={22} /> },
-    { id: 'skills', label: 'Skills', icon: <Code2 size={22} /> },
-    { id: 'projects', label: 'Projects', icon: <Briefcase size={22} /> },
+    {
+      id: 'journey',
+      label: 'Journey',
+      icon:
+        <div className="w-6 h-6">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M9.14 5.08c0 2.39-3.82 6-3.82 6s-3.82-3.61-3.82-6A3.7 3.7 0 0 1 5.32 1.5a3.7 3.7 0 0 1 3.82 3.58Z"
+              fill="none"
+              stroke="currentColor"
+              strokeMiterlimit="10"
+              strokeWidth="1.91px"
+            />
+            <circle cx="5.32" cy="5.32" r=".95" fill="currentColor" />
+            <path
+              d="M22.5 14.62c0 2.39-3.82 6-3.82 6s-3.82-3.58-3.82-6a3.7 3.7 0 0 1 3.82-3.57 3.7 3.7 0 0 1 3.82 3.57Z"
+              fill="none"
+              stroke="currentColor"
+              strokeMiterlimit="10"
+              strokeWidth="1.91px"
+            />
+            <circle cx="18.68" cy="14.86" r=".95" fill="currentColor" />
+            <path
+              d="M4.36 13h4.3a2.39 2.39 0 0 1 2.39 2.39 2.39 2.39 0 0 1-2.39 2.39H3.89a2.39 2.39 0 0 0-2.39 2.33 2.39 2.39 0 0 0 2.39 2.39h15.75"
+              fill="none"
+              stroke="currentColor"
+              strokeMiterlimit="10"
+              strokeWidth="1.91px"
+            />
+          </svg>
+        </div>
+    },
+    { id: 'skills', label: 'Skills', icon: <Trophy size={22} /> },
+    { id: 'projects', label: 'Projects', icon: <FolderOpen size={22} /> },
     { id: 'resume', label: 'Resume', icon: <FileText size={22} /> },
     {
       id: 'theme',
