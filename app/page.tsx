@@ -1,65 +1,218 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { Intro } from "../components/Intro";
+import { Dock } from '../components/Dock';
+import { GrungeOverlay } from '../components/GrungeOverlay';
+import { TopRightConnect } from '../components/TopRightConnect';
+import { Home as HomeIcon, User, Map, Code2, Briefcase, FileText } from 'lucide-react';
+import { NavItem } from '../types';
+
+// Import Section Components
+import { HomeSection } from '../components/sections/HomeSection';
+import { AboutSection } from '../components/sections/AboutSection';
+import { JourneySection } from '../components/sections/JourneySection';
+import { SkillsSection } from '../components/sections/SkillsSection';
+import { ProjectsSection } from '../components/sections/ProjectsSection';
+import { ResumeSection } from '../components/sections/ResumeSection';
 
 export default function Home() {
+  const [showIntro, setShowIntro] = useState(true);
+  const [activeTab, setActiveTab] = useState('home');
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.add('dark');
+    setIsDark(true);
+  }, []);
+
+  const toggleTheme = (e?: React.MouseEvent) => {
+    const root = document.documentElement;
+    const isDarkNow = root.classList.contains('dark');
+
+    // Fallback if View Transitions API is not supported
+    if (!(document as any).startViewTransition) {
+      if (isDarkNow) {
+        root.classList.remove('dark');
+        setIsDark(false);
+      } else {
+        root.classList.add('dark');
+        setIsDark(true);
+      }
+      return;
+    }
+
+    // Get click coordinates or default to center
+    const x = e?.clientX ?? window.innerWidth / 2;
+    const y = e?.clientY ?? window.innerHeight / 2;
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    // Inject dynamic CSS for the animation
+    const styleId = `theme-transition-${Date.now()}`;
+    const style = document.createElement('style');
+    style.id = styleId;
+    style.innerHTML = `
+      ::view-transition-old(root) {
+        animation: none;
+      }
+      ::view-transition-new(root) {
+        animation: circle-expand 0.5s ease-in-out;
+        mix-blend-mode: normal;
+      }
+      @keyframes circle-expand {
+        from {
+          clip-path: circle(0px at ${x}px ${y}px);
+        }
+        to {
+          clip-path: circle(${endRadius}px at ${x}px ${y}px);
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Start the transition
+    const transition = (document as any).startViewTransition(() => {
+      if (isDarkNow) {
+        root.classList.remove('dark');
+        setIsDark(false);
+      } else {
+        root.classList.add('dark');
+        setIsDark(true);
+      }
+    });
+
+    // Clean up CSS after transition
+    transition.finished.then(() => {
+      document.getElementById(styleId)?.remove();
+    });
+  };
+
+  const navItems: NavItem[] = [
+    { id: 'home', label: 'Home', icon: <HomeIcon size={22} /> },
+    { id: 'about', label: 'About', icon: <User size={22} /> },
+    { id: 'journey', label: 'Journey', icon: <Map size={22} /> },
+    { id: 'skills', label: 'Skills', icon: <Code2 size={22} /> },
+    { id: 'projects', label: 'Projects', icon: <Briefcase size={22} /> },
+    { id: 'resume', label: 'Resume', icon: <FileText size={22} /> },
+    {
+      id: 'theme',
+      label: 'Theme',
+      icon: isDark ? (
+        <div className="w-6 h-6">
+          <svg fill="currentColor" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z" />
+          </svg>
+        </div>
+      ) : (
+        <div className="w-6 h-6">
+          <svg fill="currentColor" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" />
+          </svg>
+        </div>
+      )
+    }
+  ];
+
+  // Scroll to section handler
+  const handleNavSelect = (id: string, e?: React.MouseEvent) => {
+    if (id === 'theme') {
+      toggleTheme(e);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  // Scroll Spy to update active Dock item
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -30% 0px', // Trigger when section is near center/top
+      threshold: 0.1
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveTab(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observe all sections
+    navItems.forEach(item => {
+      if (item.id !== 'theme') {
+        const element = document.getElementById(item.id);
+        if (element) observer.observe(element);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <AnimatePresence>
+        {showIntro && <Intro onComplete={() => setShowIntro(false)} />}
+      </AnimatePresence>
+
+      <div className={`min-h-screen w-full relative transition-all duration-1000 ${showIntro ? 'opacity-0' : 'opacity-100'}`}>
+
+        {/* Background Texture & Ambience */}
+        <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+          {/* Dark Mode Ambience */}
+          <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full dark:opacity-100 opacity-0 transition-opacity duration-700" />
+          <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-blue-900/10 blur-[150px] rounded-full dark:opacity-100 opacity-0 transition-opacity duration-700" />
+
+          {/* Light Mode Ambience */}
+          <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-gray-200 blur-[100px] rounded-full dark:opacity-0 opacity-100 transition-opacity duration-700" />
+
+          {isDark && <GrungeOverlay opacity={0.08} />}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        {/* Top Right Connect Dropdown */}
+        <TopRightConnect />
+
+        {/* Main Scrolling Content Area */}
+        <main className="relative z-10 w-full flex flex-col pb-24">
+
+          <section id="home" className="min-h-screen flex items-center justify-center p-4">
+            <HomeSection />
+          </section>
+
+          <section id="about" className="min-h-screen flex items-center justify-center p-4 bg-background/30 backdrop-blur-[2px]">
+            <AboutSection />
+          </section>
+
+          <section id="journey" className="min-h-screen flex items-center justify-center p-4">
+            <JourneySection />
+          </section>
+
+          <section id="skills" className="min-h-screen flex items-center justify-center p-4 bg-background/30 backdrop-blur-[2px]">
+            <SkillsSection />
+          </section>
+
+          <section id="projects" className="min-h-screen flex items-center justify-center p-4">
+            <ProjectsSection />
+          </section>
+
+          <section id="resume" className="min-h-[50vh] flex items-center justify-center p-4 mb-20">
+            <ResumeSection />
+          </section>
+
+        </main>
+
+        <Dock items={navItems} activeId={activeTab} onSelect={handleNavSelect} />
+      </div>
+    </>
   );
 }
