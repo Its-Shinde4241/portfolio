@@ -149,7 +149,6 @@ export default function Home() {
     }
   ];
 
-  // Scroll to section handler
   const handleNavSelect = (id: string, e?: React.MouseEvent) => {
     if (id === 'theme') {
       toggleTheme(e);
@@ -161,11 +160,10 @@ export default function Home() {
     }
   };
 
-  // Scroll Spy to update active Dock item
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '-30% 0px -30% 0px', // Trigger when section is near center/top
+      rootMargin: '-30% 0px -30% 0px',
       threshold: 0.1
     };
 
@@ -198,22 +196,17 @@ export default function Home() {
 
       <div className={`min-h-screen w-full relative transition-all duration-1000 ${showIntro ? 'opacity-0' : 'opacity-100'}`}>
 
-        {/* Background Texture & Ambience */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-          {/* Dark Mode Ambience */}
           <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full dark:opacity-100 opacity-0 transition-opacity duration-700" />
           <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-blue-900/10 blur-[150px] rounded-full dark:opacity-100 opacity-0 transition-opacity duration-700" />
 
-          {/* Light Mode Ambience */}
           <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-gray-200 blur-[100px] rounded-full dark:opacity-0 opacity-100 transition-opacity duration-700" />
 
           {isDark && <GrungeOverlay opacity={0.08} />}
         </div>
 
-        {/* Top Right Connect Dropdown */}
         <TopRightConnect />
 
-        {/* Main Scrolling Content Area */}
         <main className="relative z-10 w-full flex flex-col pb-24">
 
           <section id="home" className="min-h-screen flex items-center justify-center p-4">

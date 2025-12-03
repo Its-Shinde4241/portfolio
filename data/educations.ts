@@ -5,7 +5,7 @@ export const educations: Education[] = [
     end: "May 2021",
     title: "SSC - 10th grade",
     description:
-      "Successfully completed Secondary School Certificate with an outstanding score of 95.80%, laying a strong academic foundation.",
+      "Successfully completed Secondary School Certificate with an outstanding score of <strong>95.80%</strong>, laying a strong academic foundation.",
     place: "Nashik",
     institute: "Vainateya Vidyalaya, Niphad",
     logoLink: "/EducationInstitutes/Vainateya_school.png",
@@ -15,7 +15,7 @@ export const educations: Education[] = [
     end: "March 2023",
     title: "HSC - 12th grade",
     description:
-      "Completed Higher Secondary Certificate (Science) with 88.33%, demonstrating consistent performance and dedication.",
+      "Completed Higher Secondary Certificate (Science) with <strong>88.33%</strong>, demonstrating consistent performance and dedication.",
     place: "Nashik",
     institute: "H.A.L. College of Science and Commerce, Ozar (Nashik)",
     logoLink: "/EducationInstitutes/HSC_College.png",
@@ -26,7 +26,7 @@ export const educations: Education[] = [
     end: "June 2023",
     title: "MHT-CET",
     description:
-      "Achieved an excellent percentile of 99.71 in the Maharashtra Common Entrance Test, securing eligibility for top engineering institutes.",
+      "Achieved an excellent <strong>percentile of 99.71%</strong> in the Maharashtra Common Entrance Test, securing eligibility for top engineering institutes.",
     place: "Nashik",
     institute: "Ram-Raj Junior College, Nashik",
     logoLink: "/EducationInstitutes/Ramraj_College.png",
@@ -37,11 +37,11 @@ export const educations: Education[] = [
     end: " Present",
     title: "BE Computer Engineering",
     description:
-      "Currently pursuing a Bachelor's degree in Computer Engineering with a remarkable GPA of 9.80, focusing on software development and emerging technologies.",
+      "Currently pursuing a Bachelor's degree in Computer Engineering with a remarkable <strong>GPA of 9.80</strong>  , focusing on software development and emerging technologies.",
     place: "Pune",
     institute: "Pune Institute of Computer Technology",
     logoLink: "/EducationInstitutes/PICT_College.png",
-    technologies: ["Software Engineering", "Data Structures", "Algorithms", "Web Development", "OOP", "DBMS", "CNS"],
+    technologies: ["Software Engineering", "DSA", "OOP", "DBMS", "CNS", "OS"],
   },
 ];
 

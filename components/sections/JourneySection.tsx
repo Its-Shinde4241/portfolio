@@ -1,17 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, Calendar, MapPin } from 'lucide-react';
+import { GraduationCap, Calendar, MapPin, Laptop, Laptop2 } from 'lucide-react';
 import { educations, workExperiences } from '../../data/educations';
 
 export const JourneySection: React.FC = () => {
     return (
         <div className="w-full max-w-4xl mx-auto px-4 py-20">
             <h2 className="font-title text-4xl text-foreground mb-12 text-center">My Journey</h2>
-
-            {/* Work Experience */}
-
-
-            {/* Education */}
             <div>
                 <div className="flex items-center gap-3 mb-8">
                     <div className="p-2 rounded-lg bg-primary/10 text-primary">
@@ -32,7 +27,7 @@ export const JourneySection: React.FC = () => {
                         >
                             <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-background border-2 border-primary" />
 
-                            <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
+                            <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 hover:border-primary/30 transition-colors">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
                                     <div>
                                         <h4 className="text-xl font-semibold text-foreground">{edu.title}</h4>
@@ -50,9 +45,9 @@ export const JourneySection: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                                    {edu.description}
-                                </p>
+                                <p className="text-muted-foreground text-sm leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: edu.description }} />
+                                {/* {edu.description} */}
+                                {/* </p> */}
 
                                 <div className="flex flex-wrap gap-2">
                                     {edu.technologies.map((tech) => (
@@ -66,10 +61,10 @@ export const JourneySection: React.FC = () => {
                     ))}
                 </div>
             </div>
-            <div className="mb-16">
+            <div className="mb-16 mt-10">
                 <div className="flex items-center gap-3 mb-8">
                     <div className="p-2 rounded-lg bg-primary/10 text-primary">
-                        <Briefcase size={24} />
+                        <Laptop size={24} />
                     </div>
                     <h3 className="text-2xl font-bold text-foreground">Work Experience</h3>
                 </div>
@@ -86,7 +81,7 @@ export const JourneySection: React.FC = () => {
                         >
                             <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-background border-2 border-primary" />
 
-                            <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
+                            <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 hover:border-primary/30 transition-colors">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
                                     <div>
                                         <h4 className="text-xl font-semibold text-foreground">{job.role}</h4>

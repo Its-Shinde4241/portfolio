@@ -87,9 +87,9 @@ export const TopRightConnect: React.FC = () => {
       <div className="pointer-events-auto relative">
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-background/50 backdrop-blur-md border border-primary/20 hover:bg-background/80 hover:border-primary/50 transition-all shadow-lg group text-foreground"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-background/50 backdrop-blur-md border border-primary/10 hover:bg-background/80 hover:border-primary/30 transition-all shadow-lg group text-foreground cursor-pointer"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 1 }}
         >
           <span className="font-title tracking-wider text-sm font-semibold group-hover:text-primary transition-colors">CONNECT</span>
           <motion.div
@@ -120,9 +120,17 @@ export const TopRightConnect: React.FC = () => {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.8 }}
                 transition={{ delay: i * 0.05, type: "spring", stiffness: 300, damping: 20 }}
-                className="w-12 h-12 flex items-center justify-center rounded-2xl bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md border border-zinc-200 dark:border-white/10 shadow-lg text-muted-foreground hover:bg-white hover:text-primary dark:hover:bg-zinc-800 dark:hover:text-primary transition-all duration-300 group relative"
+                className="w-12 h-12 flex items-center justify-center rounded-2xl bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md border border-zinc-200 dark:border-white/10 shadow-lg text-muted-foreground hover:bg-white hover:text-primary dark:hover:bg-zinc-800 dark:hover:text-primary transition-all duration-500 ease-out group relative"
                 title={link.title}
-                whileHover={{ x: -5, scale: 1.1 }}
+                whileHover={{
+                  x: -5,
+                  scale: 1.1,
+                  transition: { type: "spring", stiffness: 400, damping: 25 }
+                }}
+                whileTap={{
+                  scale: 0.95,
+                  transition: { duration: 0.1 }
+                }}
               >
                 {link.svg}
               </motion.a>
