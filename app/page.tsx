@@ -24,8 +24,17 @@ export default function Home() {
 
   useEffect(() => {
     const root = document.documentElement;
-    root.classList.add('dark');
-    setIsDark(true);
+    // Get theme from localStorage or default to light
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = savedTheme === 'dark';
+
+    if (prefersDark) {
+      root.classList.add('dark');
+      setIsDark(true);
+    } else {
+      root.classList.remove('dark');
+      setIsDark(false);
+    }
   }, []);
 
   const toggleTheme = (e?: React.MouseEvent) => {
@@ -37,9 +46,11 @@ export default function Home() {
       if (isDarkNow) {
         root.classList.remove('dark');
         setIsDark(false);
+        localStorage.setItem('theme', 'light');
       } else {
         root.classList.add('dark');
         setIsDark(true);
+        localStorage.setItem('theme', 'dark');
       }
       return;
     }
@@ -57,18 +68,24 @@ export default function Home() {
     const style = document.createElement('style');
     style.id = styleId;
     style.innerHTML = `
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation-duration: 0.7s;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      }
       ::view-transition-old(root) {
-        animation: none;
+        z-index: 1;
       }
       ::view-transition-new(root) {
-        animation: circle-expand 0.5s ease-in-out;
+        z-index: 2;
+        animation-name: circle-expand;
         mix-blend-mode: normal;
       }
       @keyframes circle-expand {
-        from {
+        0% {
           clip-path: circle(0px at ${x}px ${y}px);
         }
-        to {
+        100% {
           clip-path: circle(${endRadius}px at ${x}px ${y}px);
         }
       }
@@ -80,17 +97,22 @@ export default function Home() {
       if (isDarkNow) {
         root.classList.remove('dark');
         setIsDark(false);
+        localStorage.setItem('theme', 'light');
       } else {
         root.classList.add('dark');
         setIsDark(true);
+        localStorage.setItem('theme', 'dark');
       }
     });
 
     // Clean up CSS after transition
     transition.finished.then(() => {
       document.getElementById(styleId)?.remove();
+    }).catch(() => {
+      document.getElementById(styleId)?.remove();
     });
   };
+
 
   const navItems: NavItem[] = [
     { id: 'home', label: 'Home', icon: <HomeIcon size={22} /> },

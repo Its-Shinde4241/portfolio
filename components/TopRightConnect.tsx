@@ -4,6 +4,7 @@ import { ChevronDown } from 'lucide-react';
 
 export const TopRightConnect: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   const contactLinks = [
     {
@@ -111,29 +112,51 @@ export const TopRightConnect: React.FC = () => {
             className="pointer-events-auto mt-4 flex flex-col gap-3 items-end origin-top-right overflow-visible"
           >
             {contactLinks.map((link, i) => (
-              <motion.a
+              <motion.div
                 key={link.title}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                className="relative"
                 initial={{ opacity: 0, y: -20, scale: 0.8 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.8 }}
                 transition={{ delay: i * 0.05, type: "spring", stiffness: 300, damping: 20 }}
-                className="w-12 h-12 flex items-center justify-center rounded-2xl bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md border border-zinc-200 dark:border-white/10 shadow-lg text-muted-foreground hover:bg-white hover:text-primary dark:hover:bg-zinc-800 dark:hover:text-primary transition-all duration-500 ease-out group relative"
-                title={link.title}
-                whileHover={{
-                  x: -5,
-                  scale: 1.1,
-                  transition: { type: "spring", stiffness: 400, damping: 25 }
-                }}
-                whileTap={{
-                  scale: 0.95,
-                  transition: { duration: 0.1 }
-                }}
+                onMouseEnter={() => setHoveredLink(link.title)}
+                onMouseLeave={() => setHoveredLink(null)}
               >
-                {link.svg}
-              </motion.a>
+                <motion.a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 flex items-center justify-center rounded-2xl bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md border border-zinc-200 dark:border-white/10 shadow-lg text-muted-foreground hover:bg-white hover:text-primary dark:hover:bg-zinc-800 dark:hover:text-primary transition-all duration-500 ease-out group"
+                  whileHover={{
+                    x: -5,
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 400, damping: 25 }
+                  }}
+                  whileTap={{
+                    scale: 0.95,
+                    transition: { duration: 0.1 }
+                  }}
+                >
+                  {link.svg}
+                </motion.a>
+
+                {/* Tooltip */}
+                <AnimatePresence>
+                  {hoveredLink === link.title && (
+                    <motion.div
+                      initial={{ opacity: 0, x: 10, scale: 0.8 }}
+                      animate={{ opacity: 1, x: 0, scale: 1 }}
+                      exit={{ opacity: 0, x: 5, scale: 0.8 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                      className="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-popover/90 text-popover-foreground dark:bg-zinc-900/90 dark:text-zinc-100 text-xs font-semibold rounded-lg whitespace-nowrap border border-border/50 dark:border-white/10 shadow-xl dark:shadow-white/10 backdrop-blur-md pointer-events-none z-50"
+                    >
+                      {link.title.charAt(0).toUpperCase() + link.title.slice(1)}
+                      {/* Tooltip Arrow */}
+                      <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-2 h-2 bg-popover/90 dark:bg-zinc-900/90 rotate-45 border-r border-b border-border/50 dark:border-white/10" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             ))}
           </motion.div>
         )}

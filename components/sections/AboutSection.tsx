@@ -15,7 +15,7 @@ export const AboutSection: React.FC = () => {
           Beyond academics, I am a passionate problem solver. I have cracked over <span className="text-foreground font-semibold">500+ DSA problems on LeetCode</span> (Max Rating: 1628) and hold a 2-Star rating on CodeChef. I thrive on challenging myself with complex algorithms while simultaneously building scalable systems as a Full Stack Developer.
         </p>
 
-        <div className="grid grid-cols-2 gap-4 pt-4">
+        <div className="grid grid-cols-2 gap-4 pt-4 select-none">
           {/* GitHub Card (Replaces Codeforces) */}
           <a href="https://github.com/Its-Shinde4241" target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl bg-card border border-border flex flex-col gap-2 hover:border-primary/50 transition-colors group cursor-pointer text-left">
             <div className="flex justify-between items-start w-full">

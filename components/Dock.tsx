@@ -142,7 +142,7 @@ const DockIcon: React.FC<DockIconProps> = ({
             animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
             exit={{ opacity: 0, y: 5, x: "-50%", scale: 0.8 }}
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            className="absolute -top-16 left-1/2 px-3 py-1.5 bg-popover/90 text-popover-foreground dark:bg-zinc-900/90 dark:text-zinc-100 text-xs font-semibold rounded-lg whitespace-nowrap border border-border/50 dark:border-white/10 shadow-xl backdrop-blur-md pointer-events-none z-50"
+            className="absolute -top-16 left-1/2 px-3 py-1.5 bg-popover/90 text-popover-foreground dark:bg-zinc-900/90 dark:text-zinc-100 text-xs font-semibold rounded-lg whitespace-nowrap border border-border/50 dark:border-white/10 shadow-xl dark:shadow-white/10 backdrop-blur-md pointer-events-none z-50"
           >
             {item.label}
             {/* Tooltip Arrow */}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Layout, Database, PenTool, Code2 } from 'lucide-react';
+import { Terminal, Layout, Database, PenTool, Code2, Cpu } from 'lucide-react';
 import { skillSvgs, langs, dbs, frameworks, tools, getSkillIconKey, coreSubjects } from '../../data/skills';
 import { Badge } from '../ui/badge';
 
@@ -15,7 +15,6 @@ export const SkillsSection: React.FC = () => {
         {skills.map((skill, i) => {
           const iconKey = getSkillIconKey(skill);
           const svgContent = iconKey ? skillSvgs[iconKey] : null;
-
           return (
             <motion.div
               key={skill}
@@ -27,7 +26,7 @@ export const SkillsSection: React.FC = () => {
                 y: -5, scale: 1.05,
                 transition: { type: "spring", stiffness: 400, damping: 25 }
               }}
-              className="flex flex-col items-center justify-center p-2 bg-card/50 backdrop-blur-sm border border-border hover:border-primary/20 rounded-xl hover:shadow-[0_0_15px_rgba(var(--primary),0.15)] transition-all group h-28"
+              className="flex flex-col items-center justify-center p-4 bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 hover:border-primary/30 rounded-2xl hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:bg-white/15 dark:hover:bg-white/10 transition-all duration-300 group h-28 shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
             >
               <div className="w-8 h-8 mb-2 text-foreground/80 group-hover:text-primary transition-colors duration-300">
                 {svgContent ? (
@@ -45,10 +44,10 @@ export const SkillsSection: React.FC = () => {
   );
 
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-20">
+    <div className="w-full max-w-5xl mx-auto px-4 py-20 select-none">
       <h2 className="font-title text-4xl text-foreground mb-12 text-center">Technical Arsenal</h2>
       <div className="flex items-center gap-2 mb-4">
-        <span className="text-primary"><Terminal size={24} /></span>
+        <span className="text-primary"><Cpu size={24} /></span>
         <h3 className="font-title text-2xl text-foreground">Core</h3>
       </div>
       <div className='flex gap-1 lg:gap-3 flex-wrap mb-10 ml-1'>

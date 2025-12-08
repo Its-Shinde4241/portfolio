@@ -8,7 +8,7 @@ export const HomeSection: React.FC = () => {
       <div className={`select-none w-full h-50 absolute top-50 left-0`}>
         <TextHoverEffect text="TECHNOPHILE" automatic />
       </div>
-      <div className="flex flex-col items-center justify-center h-full text-center space-y-8">
+      <div className="flex flex-col items-center justify-center h-full text-center space-y-8 pointer-events-none select-none">
 
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
@@ -20,7 +20,7 @@ export const HomeSection: React.FC = () => {
           <img src={profile.src} alt="Profile" className="w-full h-full object-cover contrast-105" />
         </motion.div>
 
-        <div className="space-y-4 pointe">
+        <div className="space-y-4 pointe pointer-events-none">
           <h1 className="font-title text-6xl md:text-8xl font-bold tracking-tighter uppercase text-foreground">
             The <span className="text-rose-700 drop-shadow-md">Engineer</span>
           </h1>
