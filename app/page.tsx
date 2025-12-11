@@ -8,110 +8,20 @@ import { GrungeOverlay } from '../components/GrungeOverlay';
 import { TopRightConnect } from '../components/TopRightConnect';
 import { Home as HomeIcon, User, FileText, FolderOpen, Trophy } from 'lucide-react';
 import { NavItem } from '../types';
-
-// Import Section Components
+import { useTheme } from 'next-themes';
 import { HomeSection } from '../components/sections/HomeSection';
 import { AboutSection } from '../components/sections/AboutSection';
 import { JourneySection } from '../components/sections/JourneySection';
 import { SkillsSection } from '../components/sections/SkillsSection';
 import { ProjectsSection } from '../components/sections/ProjectsSection';
 import { ResumeSection } from '../components/sections/ResumeSection';
+import { useThemeTransitionAnimation } from '@/components/themeAnimator';
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
   const [activeTab, setActiveTab] = useState('home');
-  const [isDark, setIsDark] = useState(true);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    // Get theme from localStorage or default to light
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = savedTheme === 'dark';
-
-    if (prefersDark) {
-      root.classList.add('dark');
-      setIsDark(true);
-    } else {
-      root.classList.remove('dark');
-      setIsDark(false);
-    }
-  }, []);
-
-  const toggleTheme = (e?: React.MouseEvent) => {
-    const root = document.documentElement;
-    const isDarkNow = root.classList.contains('dark');
-
-    // Fallback if View Transitions API is not supported
-    if (!(document as any).startViewTransition) {
-      if (isDarkNow) {
-        root.classList.remove('dark');
-        setIsDark(false);
-        localStorage.setItem('theme', 'light');
-      } else {
-        root.classList.add('dark');
-        setIsDark(true);
-        localStorage.setItem('theme', 'dark');
-      }
-      return;
-    }
-
-    // Get click coordinates or default to center
-    const x = e?.clientX ?? window.innerWidth / 2;
-    const y = e?.clientY ?? window.innerHeight / 2;
-    const endRadius = Math.hypot(
-      Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y)
-    );
-
-    // Inject dynamic CSS for the animation
-    const styleId = `theme-transition-${Date.now()}`;
-    const style = document.createElement('style');
-    style.id = styleId;
-    style.innerHTML = `
-      ::view-transition-old(root),
-      ::view-transition-new(root) {
-        animation-duration: 0.7s;
-        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      ::view-transition-old(root) {
-        z-index: 1;
-      }
-      ::view-transition-new(root) {
-        z-index: 2;
-        animation-name: circle-expand;
-        mix-blend-mode: normal;
-      }
-      @keyframes circle-expand {
-        0% {
-          clip-path: circle(0px at ${x}px ${y}px);
-        }
-        100% {
-          clip-path: circle(${endRadius}px at ${x}px ${y}px);
-        }
-      }
-    `;
-    document.head.appendChild(style);
-
-    // Start the transition
-    const transition = (document as any).startViewTransition(() => {
-      if (isDarkNow) {
-        root.classList.remove('dark');
-        setIsDark(false);
-        localStorage.setItem('theme', 'light');
-      } else {
-        root.classList.add('dark');
-        setIsDark(true);
-        localStorage.setItem('theme', 'dark');
-      }
-    });
-
-    // Clean up CSS after transition
-    transition.finished.then(() => {
-      document.getElementById(styleId)?.remove();
-    }).catch(() => {
-      document.getElementById(styleId)?.remove();
-    });
-  };
+  const { theme, setTheme } = useTheme();
+  const { startAnimationAndTransition } = useThemeTransitionAnimation();
 
 
   const navItems: NavItem[] = [
@@ -155,7 +65,7 @@ export default function Home() {
     {
       id: 'theme',
       label: 'Theme',
-      icon: isDark ? (
+      icon: theme == "dark" ? (
         <div className="w-6 h-6">
           <svg fill="currentColor" aria-hidden="true" viewBox="0 0 24 24">
             <path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z" />
@@ -173,7 +83,18 @@ export default function Home() {
 
   const handleNavSelect = (id: string, e?: React.MouseEvent) => {
     if (id === 'theme') {
-      toggleTheme(e);
+      // setTheme();
+      const clickX = e?.clientX;
+      const clickY = e?.clientY;
+      startAnimationAndTransition(
+        () => setTheme(theme === 'dark' ? 'light' : 'dark'),
+        theme as 'light' | 'dark', // Current theme
+        "gif",
+        // "bottom-right",
+        clickX,
+        clickY,
+        "https://media.giphy.com/media/KBbr4hHl9DSahKvInO/giphy.gif?cid=790b76112m5eeeydoe7et0cr3j3ekb1erunxozyshuhxx2vl&ep=v1_stickers_search&rid=giphy.gif&ct=s"
+      );
     } else {
       const element = document.getElementById(id);
       if (element) {
@@ -224,7 +145,7 @@ export default function Home() {
 
           <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-gray-200 blur-[100px] rounded-full dark:opacity-0 opacity-100 transition-opacity duration-700" />
 
-          {isDark && <GrungeOverlay opacity={0.08} />}
+          {theme == "dark" && <GrungeOverlay opacity={0.08} />}
         </div>
 
         <TopRightConnect />
