@@ -156,7 +156,7 @@ export default function Home() {
             <HomeSection />
           </section>
 
-          <section id="about" className="min-h-screen flex items-center justify-center p-4 bg-background/30 backdrop-blur-[2px]">
+          <section id="about" className="min-h-screen flex items-center justify-center p-4 ">
             <AboutSection />
           </section>
 
@@ -164,7 +164,7 @@ export default function Home() {
             <JourneySection />
           </section>
 
-          <section id="skills" className="min-h-screen flex items-center justify-center p-4 bg-background/30 backdrop-blur-[2px]">
+          <section id="skills" className="min-h-screen flex items-center justify-center p-4 ">
             <SkillsSection />
           </section>
 

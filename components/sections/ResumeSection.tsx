@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, ExternalLink } from 'lucide-react';
+import { ExternalLink, FileUser } from 'lucide-react';
 
 export const ResumeSection: React.FC = () => {
   const resumeUrl = 'https://drive.google.com/uc?export=download&id=1nQhqckh4m34oQp1q8f5EHd8BIJQF6tpE'; // Update with actual resume URL
@@ -8,8 +8,8 @@ export const ResumeSection: React.FC = () => {
   }
   return (
     <div className="flex flex-col items-center justify-center space-y-8 text-center">
-      <div className="w-24 h-24 bg-secondary rounded-full flex items-center justify-center text-primary mb-4">
-        <FileText size={48} />
+      <div className="w-24 h-24 bg-foreground/10 rounded-full flex items-center justify-center text-primary mb-4">
+        <FileUser size={48} />
       </div>
       <h2 className="font-title text-4xl text-foreground">My Resume</h2>
       <p className="text-muted-foreground max-w-md">

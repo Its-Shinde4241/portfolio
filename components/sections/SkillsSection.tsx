@@ -55,7 +55,7 @@ export const SkillsSection: React.FC = () => {
 
           coreSubjects.map((sub, i) => (
             <div key={i} className="">
-              <Badge className='rounded-md bg-foreground/95 font-medium text-sm transition-all duration-100 ease-in-out'>{sub}</Badge>
+              <Badge className='rounded-md bg-foreground/95 font-medium text-background text-sm transition-all duration-100 ease-in-out'>{sub}</Badge>
             </div>
           ))
         }

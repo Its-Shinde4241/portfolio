@@ -12,7 +12,7 @@ export const AboutSection: React.FC = () => {
         </p>
 
         <p className="text-muted-foreground text-lg leading-relaxed">
-          Beyond academics, I am a passionate problem solver. I have cracked over <span className="text-foreground font-semibold">500+ DSA problems on LeetCode</span> (Max Rating: 1628) and hold a 2-Star rating on CodeChef. I thrive on challenging myself with complex algorithms while simultaneously building scalable systems as a Full Stack Developer.
+          Beyond academics, I am a passionate problem solver. I have cracked over <span className="text-foreground font-semibold">500+ DSA problems on LeetCode</span> (Max Rating: 1628) and hold a 2-Star rating on CodeChef. I thrive on challenging myself with complex algorithms while simultaneously building scalable systems as a Software Engineer & Full Stack Developer.
         </p>
 
         <div className="grid grid-cols-2 gap-4 pt-4 select-none">
