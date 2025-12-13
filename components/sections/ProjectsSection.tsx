@@ -62,7 +62,7 @@ export const ProjectsSection: React.FC = () => {
 
                         {/* Bottom Content */}
                         <div className="absolute bottom-0 left-0 p-6 z-20 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                            <h3 className="font-title text-3xl text-foreground mb-2 group-hover:text-primary transition-colors">{project.name}</h3>
+                            <h3 className="font-title text-3xl font-semibold text-foreground mb-2  transition-colors">{project.name}</h3>
 
                             <div
                                 className="text-sm text-muted-foreground line-clamp-2 mb-4 group-hover:text-foreground/90 group-hover:line-clamp-none transition-all duration-300"

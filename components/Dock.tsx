@@ -119,13 +119,14 @@ const DockIcon: React.FC<DockIconProps> = ({
       {isActive && !isAction && (
         <motion.div
           layoutId="activeDot"
-          className="absolute -bottom-4 w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_8px_rgba(200,0,0,0.8)]"
+          className="absolute -bottom-4 w-1.5 h-1.5 bg-rose-700 rounded-full shadow-[0_0_8px_rgba(200,0,0,0.8)]"
         />
       )}
 
       <motion.div
         className={`h-full w-full rounded-2xl flex items-center justify-center transition-all duration-300 shadow-lg overflow-hidden border ${isActive && !isAction
-          ? 'bg-primary text-primary-foreground scale-105 border-primary'
+          // ? 'bg-foreground text-muted/90 scale-105 border-foreground'
+          ? 'bg-rose-700 text-secondary-foreground scale-105 border-rose-700'
           : 'bg-white/60 dark:bg-zinc-900/60 border-zinc-200 dark:border-white/10 backdrop-blur-md hover:bg-white/80 dark:hover:bg-zinc-800/80 text-muted-foreground hover:text-foreground'
           }`}
       >
