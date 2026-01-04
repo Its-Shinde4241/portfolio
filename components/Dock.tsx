@@ -135,7 +135,6 @@ const DockIcon: React.FC<DockIconProps> = ({
         </div>
       </motion.div>
 
-      {/* Tooltip */}
       <AnimatePresence>
         {isHovered && (
           <motion.div
@@ -146,7 +145,6 @@ const DockIcon: React.FC<DockIconProps> = ({
             className="absolute -top-16 left-1/2 px-3 py-1.5 bg-popover/90 text-popover-foreground dark:bg-zinc-900/90 dark:text-zinc-100 text-xs font-semibold rounded-lg whitespace-nowrap border border-border/50 dark:border-white/10 shadow-xl dark:shadow-white/10 backdrop-blur-md pointer-events-none z-50"
           >
             {item.label}
-            {/* Tooltip Arrow */}
             <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-popover/90 dark:bg-zinc-900/90 rotate-45 border-r border-b border-border/50 dark:border-white/10" />
           </motion.div>
         )}
