@@ -16,9 +16,11 @@ import { SkillsSection } from '../components/sections/SkillsSection';
 import { ProjectsSection } from '../components/sections/ProjectsSection';
 import { ResumeSection } from '../components/sections/ResumeSection';
 import { useThemeTransitionAnimation } from '@/components/themeAnimator';
+import { GitHubContributionGraph } from '@/components/githubContributionGraph';
+import { LeetCodeContributionGraph } from '@/components/leetcodeContributionGraph';
 
 export default function Home() {
-  const [showIntro, setShowIntro] = useState(true);
+  // const [showIntro, setShowIntro] = useState(true);
   const [activeTab, setActiveTab] = useState('home');
   const { theme, setTheme } = useTheme();
   const { startAnimationAndTransition } = useThemeTransitionAnimation();
@@ -134,17 +136,12 @@ export default function Home() {
   return (
     <>
       <AnimatePresence>
-        {showIntro && <Intro onComplete={() => setShowIntro(false)} />}
+        {/* {showIntro && <Intro onComplete={() => setShowIntro(false)} />} */}
       </AnimatePresence>
 
-      <div className={`min-h-screen w-full relative transition-all duration-1000 ${showIntro ? 'opacity-0' : 'opacity-100'}`}>
+      <div className={`min-h-screen w-full relative transition-all duration-1000 `}>
 
         <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-          {/* <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full dark:opacity-100 opacity-0 transition-opacity duration-700" />
-          <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-blue-900/10 blur-[150px] rounded-full dark:opacity-100 opacity-0 transition-opacity duration-700" />
-
-          <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-gray-200 blur-[100px] rounded-full dark:opacity-0 opacity-100 transition-opacity duration-700" /> */}
-
           {theme == "dark" && <GrungeOverlay opacity={0.08} />}
         </div>
 

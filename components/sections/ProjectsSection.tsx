@@ -16,7 +16,7 @@ export const ProjectsSection: React.FC = () => {
                         viewport={{ once: true }}
                         // transition={{ delay: i * 0.1 }}
                         whileHover={{ y: -1, scale: 1.05 }}
-                        className="group relative h-[340px] bg-card border border-border rounded-xl overflow-hidden cursor-cell shadow-sm hover:shadow-xl transition-all duration-100"
+                        className="group relative h-[340px] bg-card border border-border rounded-xl overflow-hidden cursor-cell shadow-sm hover:shadow-xl transition-all duration-100 ease-linear"
                         style={{
                             boxShadow: `
                                     0 25px 50px -12px rgba(0, 0, 0, 0.5),
