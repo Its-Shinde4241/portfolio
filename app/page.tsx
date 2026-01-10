@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { Intro } from "../components/Intro";
 import { Dock } from '../components/Dock';
 import { GrungeOverlay } from '../components/GrungeOverlay';
 import { TopRightConnect } from '../components/TopRightConnect';
