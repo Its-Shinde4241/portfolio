@@ -83,14 +83,24 @@ export const TopRightConnect: React.FC = () => {
   ];
 
   return (
-    <div className="fixed top-6 right-6 z-50 flex flex-col items-end pointer-events-none">
+    <div className="fixed top-6 right-6 z-50 flex flex-col items-end pointer-events-none" >
       {/* Pointer events auto for children */}
-      <div className="pointer-events-auto relative">
+      <div
+        className="pointer-events-auto relative"
+
+      >
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-background/50 backdrop-blur-md border border-primary/10 hover:bg-background/80 hover:border-primary/30 transition-all shadow-lg group text-foreground cursor-pointer"
+          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-sm border border-white/30 dark:border-white/15 hover:bg-white/20  hover:border-white/40 dark:hover:border-white/25 transition-all duration-300 group text-foreground cursor-pointer shadow-2xs"
           whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 1 }}
+          whileTap={{ scale: 0.98 }}
+          style={{
+            boxShadow: `
+                                  0 4px 24px -4px rgba(0, 0, 0, 0.2),
+                                  0 0 0 0.5px rgba(255, 255, 255, 0.2),
+                                  inset 0 0.5px 0 rgba(255, 255, 255, 0.2)
+                              `
+          }}
         >
           <span className="font-title tracking-wider text-sm font-semibold group-hover:text-primary transition-colors">CONNECT</span>
           <motion.div

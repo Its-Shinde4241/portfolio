@@ -14,9 +14,17 @@ export const ProjectsSection: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: i * 0.1 }}
-                        whileHover={{ y: -5, scale: 1.01 }}
-                        className="group relative h-[340px] bg-card border border-border rounded-xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
+                        // transition={{ delay: i * 0.1 }}
+                        whileHover={{ y: -1, scale: 1.05 }}
+                        className="group relative h-[340px] bg-card border border-border rounded-xl overflow-hidden cursor-cell shadow-sm hover:shadow-xl transition-all duration-100"
+                        style={{
+                            boxShadow: `
+                                    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                                    0 12px 24px -8px rgba(0, 0, 0, 0.3),
+                                    0 0 0 1px rgba(255, 255, 255, 0.05),
+                                    inset 0 1px 0 rgba(255, 255, 255, 0.1)
+                                `
+                        }}
                     >
                         {/* Background Image */}
                         <div className="absolute inset-0 bg-zinc-900">
@@ -41,10 +49,13 @@ export const ProjectsSection: React.FC = () => {
                                     href={project.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="p-2 bg-background/80 backdrop-blur-md rounded-full text-foreground hover:text-primary hover:bg-background border border-border transition-colors"
+                                    className="group/btn flex items-center gap-0 p-2 bg-background/80 backdrop-blur-sm rounded-full text-foreground hover:text-primary hover:bg-background/80 border border-border transition-all duration-600 ease-out overflow-hidden hover:gap-1.5 hover:pr-3"
                                     title="Live Demo"
                                 >
-                                    <ExternalLink size={18} />
+                                    <ExternalLink size={18} className="shrink-0" />
+                                    <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm font-medium opacity-0 transition-all duration-600 ease-out group-hover/btn:max-w-[60px] group-hover/btn:opacity-100">
+                                        Live
+                                    </span>
                                 </a>
                             )}
                             {project.github && (
@@ -52,20 +63,24 @@ export const ProjectsSection: React.FC = () => {
                                     href={project.github}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="p-2 bg-background/80 backdrop-blur-md rounded-full text-foreground hover:text-primary hover:bg-background border border-border transition-colors"
+                                    className="group/btn flex items-center gap-0 p-2 bg-background/80 backdrop-blur-sm rounded-full text-foreground hover:text-primary hover:bg-background/80 border border-border transition-all duration-600 ease-out overflow-hidden hover:gap-1.5 hover:pr-3"
                                     title="Source Code"
                                 >
-                                    <Github size={18} />
+                                    <Github size={18} className="shrink-0" />
+                                    <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm font-medium opacity-0 transition-all duration-600 ease-out group-hover/btn:max-w-[60px] group-hover/btn:opacity-100">
+                                        Source
+                                    </span>
                                 </a>
                             )}
                         </div>
 
                         {/* Bottom Content */}
-                        <div className="absolute bottom-0 left-0 p-6 z-20 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+
+                        <div className="absolute bottom-0 left-0 p-6 z-20 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-600">
                             <h3 className="font-title text-3xl font-semibold text-foreground mb-2  transition-colors">{project.name}</h3>
 
                             <div
-                                className="text-sm text-muted-foreground line-clamp-2 mb-4 group-hover:text-foreground/90 group-hover:line-clamp-none transition-all duration-300"
+                                className="text-sm text-muted-foreground line-clamp-2 mb-4 group-hover:text-foreground/90 group-hover:line-clamp-none transition-all duration-600"
                                 dangerouslySetInnerHTML={{ __html: project.description }}
                             />
 

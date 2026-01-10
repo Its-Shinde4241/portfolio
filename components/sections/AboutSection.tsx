@@ -47,13 +47,23 @@ export const AboutSection: React.FC = () => {
       </div>
 
       {/* Hidden on mobile, shown on md (tablet) and up */}
-      <div className="hidden md:flex flex-1 w-full h-[480px] bg-secondary/30 rounded-2xl overflow-hidden border border-border relative group">
+      <div
+        className="hidden md:flex flex-1 w-full h-[480px] bg-secondary/30 rounded-2xl overflow-hidden border border-border relative group"
+        style={{
+          boxShadow: `
+                                    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                                    0 12px 24px -8px rgba(0, 0, 0, 0.3),
+                                    0 0 0 1px rgba(255, 255, 255, 0.05),
+                                    inset 0 1px 0 rgba(255, 255, 255, 0.1)
+                                `
+        }}
+      >
         <div className="absolute inset-0 bg-primary/10 z-10 group-hover:bg-transparent transition-colors duration-500" />
-        {/* Profile Image - Ensure you have profile.jpg in your public folder */}
         <img
           src={profile.src}
           alt="The Scholar"
-          className="select-none w-full h-full object-center contrast-125 group-hover:grayscale-0 transition-all duration-500"
+          className="z-50 select-none w-full h-full object-center object-cover transition-all duration-500"
+
         />
       </div>
     </div>
