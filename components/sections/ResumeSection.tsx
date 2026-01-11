@@ -2,7 +2,7 @@ import React from 'react';
 import { ExternalLink, FileUser } from 'lucide-react';
 
 export const ResumeSection: React.FC = () => {
-  const resumeUrl = 'https://drive.google.com/uc?export=download&id=1nQhqckh4m34oQp1q8f5EHd8BIJQF6tpE'; // Update with actual resume URL
+  const resumeUrl = 'https://drive.google.com/file/d/1nQhqckh4m34oQp1q8f5EHd8BIJQF6tpE/view?usp=sharing'; // Update with actual resume URL
   const handleDownload = () => {
     window.open(resumeUrl, '_blank');
   }
@@ -15,8 +15,20 @@ export const ResumeSection: React.FC = () => {
       <p className="text-muted-foreground max-w-md">
         Download my resume to get a detailed overview of my experience, education, and achievements.
       </p>
-      <button className="cursor-pointer px-8 py-3 bg-primary text-primary-foreground font-bold rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 flex items-center gap-2" onClick={handleDownload}>
-        <span>DOWNLOAD PDF</span>
+      <button
+        className="cursor-pointer px-8 py-3 bg-white/20 dark:bg-white/10 backdrop-blur-xl border border-white/30 dark:border-white/20 text-foreground font-bold rounded-full hover:bg-white/30 dark:hover:bg-white/15 transition-all duration-300 flex items-center gap-2 hover:scale-105 hover:text-blue-500"
+        style={{
+          boxShadow: `
+            0 8px 32px rgba(0, 0, 0, 0.12),
+            0 2px 8px rgba(0, 0, 0, 0.08),
+            inset 0 1px 1px rgba(255, 255, 255, 0.4),
+            inset 0 -1px 1px rgba(0, 0, 0, 0.05),
+            0 0 0 0.5px rgba(255, 255, 255, 0.2)
+          `
+        }}
+        onClick={handleDownload}
+      >
+        <span>OPEN</span>
         <ExternalLink size={16} />
       </button>
     </div>

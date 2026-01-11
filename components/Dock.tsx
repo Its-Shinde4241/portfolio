@@ -124,11 +124,19 @@ const DockIcon: React.FC<DockIconProps> = ({
       )}
 
       <motion.div
-        className={`h-full w-full rounded-2xl flex items-center justify-center transition-all duration-300 shadow-lg overflow-hidden border ${isActive && !isAction
-          ? 'bg-foreground text-muted/90 scale-105 border-foreground'
-          // ? 'bg-rose-700 text-secondary-foreground scale-105 border-rose-700'
-          : 'bg-white/60 dark:bg-zinc-900/60 border-zinc-200 dark:border-white/10 backdrop-blur-md hover:bg-white/80 dark:hover:bg-zinc-800/80 text-muted-foreground hover:text-foreground'
+        className={`h-full w-full rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden border ${isActive && !isAction
+          ? 'bg-foreground/90 text-muted/90 scale-105 border-foreground/50 backdrop-blur-xl'
+          : 'bg-white/20 dark:bg-white/10 border-white/30 dark:border-white/20 backdrop-blur-xl hover:bg-white/30 dark:hover:bg-white/15 text-black/70 dark:text-white/90 hover:text-foreground'
           }`}
+        style={{
+          boxShadow: `
+            0 8px 32px rgba(0, 0, 0, 0.12),
+            0 2px 8px rgba(0, 0, 0, 0.08),
+            inset 0 1px 1px rgba(255, 255, 255, 0.4),
+            inset 0 -1px 1px rgba(0, 0, 0, 0.05),
+            0 0 0 0.5px rgba(255, 255, 255, 0.2)
+          `
+        }}
       >
         <div className="relative z-10 w-full h-full flex items-center justify-center p-2">
           {item.icon}

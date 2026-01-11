@@ -16,14 +16,16 @@ export const ProjectsSection: React.FC = () => {
                         viewport={{ once: true }}
                         // transition={{ delay: i * 0.1 }}
                         whileHover={{ y: -1, scale: 1.05 }}
-                        className="group relative h-[340px] bg-card border border-border rounded-xl overflow-hidden cursor-cell shadow-sm hover:shadow-xl transition-all duration-100 ease-linear"
+                        className="group relative h-[340px] bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/30 dark:border-white/20 rounded-xl overflow-hidden cursor-cell transition-all duration-100 ease-linear"
                         style={{
                             boxShadow: `
-                                    0 25px 50px -12px rgba(0, 0, 0, 0.5),
-                                    0 12px 24px -8px rgba(0, 0, 0, 0.3),
-                                    0 0 0 1px rgba(255, 255, 255, 0.05),
-                                    inset 0 1px 0 rgba(255, 255, 255, 0.1)
-                                `
+                                0 25px 50px -12px rgba(0, 0, 0, 0.4),
+                                0 12px 24px -8px rgba(0, 0, 0, 0.2),
+                                0 8px 32px rgba(0, 0, 0, 0.12),
+                                inset 0 1px 1px rgba(255, 255, 255, 0.3),
+                                inset 0 -1px 1px rgba(0, 0, 0, 0.05),
+                                0 0 0 0.5px rgba(255, 255, 255, 0.2)
+                            `
                         }}
                     >
                         {/* Background Image */}
