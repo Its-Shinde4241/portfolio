@@ -45,7 +45,8 @@ export const ProjectsSection: React.FC = () => {
                         <div className="absolute inset-0 bg-linear-to-t from-background via-background/60 to-transparent z-10 opacity-90" />
 
                         {/* Top Right Actions */}
-                        <div className="absolute top-4 right-4 z-30 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 transform translate-y-0 md:-translate-y-2.5 md:group-hover:translate-y-0">
+                        <div className="absolute top-4 right-4 z-30 flex gap-2 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
+
                             {project.url && (
                                 <a
                                     href={project.url}
