@@ -2,7 +2,7 @@ import React from 'react';
 import { ExternalLink, FileUser } from 'lucide-react';
 
 export const ResumeSection: React.FC = () => {
-  const resumeUrl = 'https://drive.google.com/file/d/1nQhqckh4m34oQp1q8f5EHd8BIJQF6tpE/view?usp=sharing'; // Update with actual resume URL
+  const resumeUrl = 'https://drive.google.com/file/d/1_UC8_HMbvUXVwpAlfbs9eBdKl_cs9fyn/view?usp=drive_link'; // Update with actual resume URL
   const handleDownload = () => {
     window.open(resumeUrl, '_blank');
   }
