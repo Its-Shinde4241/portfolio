@@ -11,177 +11,204 @@ export const TopRightConnect: React.FC = () => {
       title: "github",
       href: "https://github.com/Its-Shinde4241",
       svg: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 496 512"
-          className="group-hover:scale-110 transition-all duration-300 ease-in-out w-6 h-6 fill-current"
-        >
-          <path
-            d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-          />
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className=" w-7 h-7 tabler-icon tabler-icon-brand-github "><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg>
       ),
     },
     {
       title: "leetcode",
       href: "https://leetcode.com/u/its_Shinde4241/",
       svg: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 32 32"
-          className="group-hover:scale-110 transition-all duration-300 ease-in-out w-6 h-6 fill-current"
-        >
-          <path d="m21.469 23.907-3.595 3.473c-.624.625-1.484.885-2.432.885s-1.807-.26-2.432-.885l-5.776-5.812c-.62-.625-.937-1.537-.937-2.485 0-.952.317-1.812.937-2.432l5.76-5.844c.62-.619 1.5-.859 2.448-.859s1.808.26 2.432.885l3.595 3.473c.687.688 1.823.663 2.536-.052.708-.713.735-1.848.047-2.536l-3.473-3.511a6.793 6.793 0 0 0-3.261-1.787l3.287-3.333c.688-.687.667-1.823-.047-2.536s-1.849-.735-2.536-.052L4.553 13.968c-1.307 1.312-1.989 3.113-1.989 5.113 0 1.996.683 3.86 1.989 5.168l5.797 5.812c1.307 1.307 3.115 1.937 5.115 1.937 1.995 0 3.801-.683 5.109-1.989l3.479-3.521c.688-.683.661-1.817-.052-2.531s-1.849-.74-2.531-.052zm6.28-6.558H14.218c-.932 0-1.692.801-1.692 1.791 0 .991.76 1.797 1.692 1.797h13.531c.933 0 1.693-.807 1.693-1.797 0-.989-.76-1.791-1.693-1.791z" />
-        </svg>
+        <svg className='w-8 h-8' viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" strokeWidth="3.5519999999999996"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>{`.a,.b{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;}`}</style></defs><path className="a" d="M33.8092,34.8772,26.8725,41.814a5.7258,5.7258,0,0,1-8.1154,0L8.6127,31.67a5.726,5.726,0,0,1,0-8.1155L18.7571,13.41a5.7258,5.7258,0,0,1,8.1154,0L34.5,21.0373"></path><path className="b" d="M18.7571,13.41,27.7647,4.5"></path><path className="a" d="M19.5838,27.5918h21.49"></path></g></svg>
       ),
     },
     {
       title: "linkedin",
       href: "https://www.linkedin.com/in/shubham-shinde-3a36b528a/",
       svg: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="group-hover:scale-110 transition-all duration-300 ease-in-out w-6 h-6 fill-current"
-          viewBox="0 0 448 512"
-        >
-          <path
-            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
-          />
-        </svg>
+        <svg fill="currentColor" className='w-8 h-8' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="LinkedIn"> <g> <path d="M18.44,3.06H5.56a2.507,2.507,0,0,0-2.5,2.5V18.44a2.507,2.507,0,0,0,2.5,2.5H18.44a2.5,2.5,0,0,0,2.5-2.5V5.56A2.5,2.5,0,0,0,18.44,3.06Zm1.5,15.38a1.511,1.511,0,0,1-1.5,1.5H5.56a1.511,1.511,0,0,1-1.5-1.5V5.56a1.511,1.511,0,0,1,1.5-1.5H18.44a1.511,1.511,0,0,1,1.5,1.5Z"></path> <g> <path d="M6.376,10.748a1,1,0,1,1,2,0v6.5h0a1,1,0,0,1-2,0Z"></path> <circle cx="7.376" cy="6.744" r="1"></circle> <path d="M17.62,13.37v3.88a1,1,0,1,1-2,0V13.37a1.615,1.615,0,1,0-3.23,0v3.88a1,1,0,0,1-2,0v-6.5a1.016,1.016,0,0,1,1-1,.94.94,0,0,1,.84.47,3.609,3.609,0,0,1,5.39,3.15Z"></path> </g> </g> </g> </g></svg>
+      ),
+    },
+    {
+      title: "X (Twitter)",
+      href: "https://x.com/Shubhs42",
+      svg: (
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="w-6 h-6" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.4883 14.651L15.25 21H22.25L14.3917 10.5223L20.9308 3H18.2808L13.1643 8.88578L8.75 3H1.75L9.26086 13.0145L2.31915 21H4.96917L10.4883 14.651ZM16.25 19L5.75 5H7.75L18.25 19H16.25Z"></path></svg>
       ),
     },
     {
       title: "instagram",
       href: "https://www.instagram.com/shubhamn.shinde/",
       svg: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 448 512"
-          className="group-hover:scale-110 transition-all duration-300 ease-in-out w-6 h-6 fill-current"
-        >
-          <path
-            d="M194.4 211.7a53.3 53.3 0 1 0 59.3 88.7 53.3 53.3 0 1 0-59.3-88.7zm142.3-68.4c-5.2-5.2-11.5-9.3-18.4-12-18.1-7.1-57.6-6.8-83.1-6.5-4.1 0-7.9.1-11.2.1-3.3 0-7.2 0-11.4-.1-25.5-.3-64.8-.7-82.9 6.5-6.9 2.7-13.1 6.8-18.4 12s-9.3 11.5-12 18.4c-7.1 18.1-6.7 57.7-6.5 83.2 0 4.1.1 7.9.1 11.1s0 7-.1 11.1c-.2 25.5-.6 65.1 6.5 83.2 2.7 6.9 6.8 13.1 12 18.4s11.5 9.3 18.4 12c18.1 7.1 57.6 6.8 83.1 6.5 4.1 0 7.9-.1 11.2-.1 3.3 0 7.2 0 11.4.1 25.5.3 64.8.7 82.9-6.5 6.9-2.7 13.1-6.8 18.4-12s9.3-11.5 12-18.4c7.2-18 6.8-57.4 6.5-83 0-4.2-.1-8.1-.1-11.4s0-7.1.1-11.4c.3-25.5.7-64.9-6.5-83-2.7-6.9-6.8-13.1-12-18.4zm-67.1 44.5a82 82 0 1 1-91.2 136.4 82 82 0 1 1 91.1-136.4zm29.2-1.3c-3.1-2.1-5.6-5.1-7.1-8.6s-1.8-7.3-1.1-11.1 2.6-7.1 5.2-9.8 6.1-4.5 9.8-5.2 7.6-.4 11.1 1.1 6.5 3.9 8.6 7 3.2 6.8 3.2 10.6c0 2.5-.5 5-1.4 7.3s-2.4 4.4-4.1 6.2-3.9 3.2-6.2 4.2-4.8 1.5-7.3 1.5c-3.8 0-7.5-1.1-10.6-3.2zM448 96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96zm-91 293c-18.7 18.7-41.4 24.6-67 25.9-26.4 1.5-105.6 1.5-132 0-25.6-1.3-48.3-7.2-67-25.9s-24.6-41.4-25.8-67c-1.5-26.4-1.5-105.6 0-132 1.3-25.6 7.1-48.3 25.8-67s41.5-24.6 67-25.8c26.4-1.5 105.6-1.5 132 0 25.6 1.3 48.3 7.1 67 25.8s24.6 41.4 25.8 67c1.5 26.3 1.5 105.4 0 131.9-1.3 25.6-7.1 48.3-25.8 67z"
-          />
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" className='w-8 h-8' xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3.06167 7.24464C3.10844 6.22264 3.26846 5.56351 3.48487 5.00402L3.48778 4.99629C3.70223 4.42695 4.03818 3.91119 4.47224 3.48489L4.47833 3.47891L4.48431 3.47282C4.91096 3.0382 5.42691 2.70258 5.99575 2.4887L6.00556 2.48495C6.56378 2.26786 7.22162 2.10843 8.24447 2.06167M3.06167 7.24464C3.0125 8.33659 2.99997 8.67508 2.99997 11.5063C2.99997 14.3381 3.01181 14.6758 3.06164 15.768M3.06167 7.24464L3.06167 7.52008M3.48867 18.0168C3.70255 18.5856 4.03817 19.1015 4.47279 19.5282L4.47887 19.5342L4.48484 19.5402C4.91116 19.9743 5.42694 20.3103 5.99628 20.5247L6.00478 20.5279C6.56351 20.7446 7.22167 20.9041 8.24447 20.9509M3.48867 18.0168L3.48492 18.0069C3.26783 17.4487 3.1084 16.7909 3.06164 15.768M3.48867 18.0168L3.47585 17.9492M3.06164 15.768L3.07839 15.8562M3.06164 15.768L3.06164 15.4919M3.47585 17.9492L3.07839 15.8562M3.47585 17.9492C3.30704 17.5033 3.13322 16.881 3.07839 15.8562M3.47585 17.9492C3.48177 17.9649 3.48768 17.9803 3.49359 17.9955C3.70766 18.5726 4.04685 19.0952 4.48679 19.5256C4.91708 19.9655 5.43944 20.3046 6.01636 20.5187C6.47934 20.699 7.13172 20.8875 8.24431 20.9385C9.3671 20.9896 9.71399 21 12.5062 21C15.2985 21 15.6457 20.9896 16.7685 20.9385C17.8824 20.8874 18.534 20.6979 18.9954 20.519C19.5726 20.305 20.0953 19.9657 20.5257 19.5256C20.9655 19.0953 21.3046 18.573 21.5187 17.9961C21.699 17.5331 21.8875 16.8808 21.9384 15.7682C21.9895 14.6454 22 14.2978 22 11.5063C22 8.71472 21.9895 8.36684 21.9384 7.24405C21.8871 6.12427 21.6959 5.47168 21.5161 5.00992C21.2811 4.40322 20.9831 3.94437 20.525 3.48627C20.0678 3.02999 19.6102 2.73179 19.003 2.49654C18.5396 2.31537 17.8866 2.12531 16.7685 2.07406C16.6712 2.06964 16.5798 2.06552 16.4921 2.06168M3.07839 15.8562C3.07684 15.8273 3.07539 15.7981 3.07403 15.7685C3.06961 15.6712 3.06548 15.5797 3.06164 15.4919M8.24447 2.06167C9.33668 2.01184 9.67505 2 12.5062 2C15.3374 2 15.6756 2.01252 16.7675 2.06168M8.24447 2.06167L8.52062 2.06167M16.7675 2.06168L16.4921 2.06168M16.7675 2.06168C17.7897 2.10844 18.4489 2.26844 19.0085 2.48487L19.0162 2.48781C19.5855 2.70226 20.1013 3.03821 20.5276 3.47227L20.5335 3.4783L20.5396 3.48422C20.9737 3.91055 21.3096 4.42646 21.5239 4.99596L21.5275 5.00559C21.7446 5.56381 21.9041 6.22165 21.9508 7.2445M8.52062 2.06167L16.4921 2.06168M8.52062 2.06167C9.44548 2.02123 9.95666 2.01253 12.5062 2.01253C15.056 2.01253 15.5671 2.02124 16.4921 2.06168M8.52062 2.06167C8.43284 2.06551 8.34134 2.06964 8.24402 2.07406C7.13004 2.12512 6.47843 2.31464 6.01708 2.49358C5.43767 2.70837 4.91328 3.04936 4.48192 3.49186C4.0281 3.94756 3.73105 4.40422 3.49655 5.0094C3.31536 5.4728 3.12527 6.12614 3.07402 7.24434C3.06961 7.34135 3.06549 7.43257 3.06167 7.52008M21.9508 15.768C21.9041 16.7908 21.7446 17.449 21.5279 18.0077L21.5247 18.0162C21.3102 18.5856 20.9743 19.1013 20.5402 19.5276L20.5341 19.5336L20.5282 19.5397C20.1015 19.9743 19.5856 20.3099 19.0167 20.5238L19.0069 20.5276C18.4487 20.7447 17.7908 20.9041 16.768 20.9509M3.06164 15.4919C3.0212 14.567 3.0125 14.0558 3.0125 11.5063C3.0125 8.95591 3.0212 8.44544 3.06167 7.52008M3.06164 15.4919L3.06167 7.52008M10.8155 15.5881C11.3515 15.8101 11.926 15.9244 12.5062 15.9244C13.678 15.9244 14.8018 15.4589 15.6304 14.6304C16.4589 13.8018 16.9244 12.678 16.9244 11.5063C16.9244 10.3345 16.4589 9.21072 15.6304 8.38215C14.8018 7.55359 13.678 7.0881 12.5062 7.0881C11.926 7.0881 11.3515 7.20238 10.8155 7.42442C10.2794 7.64645 9.79239 7.97189 9.38213 8.38215C8.97187 8.79242 8.64643 9.27947 8.42439 9.81551C8.20236 10.3515 8.08808 10.9261 8.08808 11.5063C8.08808 12.0865 8.20236 12.661 8.42439 13.197C8.64643 13.7331 8.97187 14.2201 9.38213 14.6304C9.79239 15.0406 10.2794 15.3661 10.8155 15.5881ZM9.37229 8.37231C10.2035 7.54113 11.3308 7.07418 12.5062 7.07418C13.6817 7.07418 14.809 7.54113 15.6402 8.37231C16.4714 9.20349 16.9383 10.3308 16.9383 11.5063C16.9383 12.6817 16.4714 13.809 15.6402 14.6402C14.809 15.4714 13.6817 15.9383 12.5062 15.9383C11.3308 15.9383 10.2035 15.4714 9.37229 14.6402C8.54111 13.809 8.07416 12.6817 8.07416 11.5063C8.07416 10.3308 8.54111 9.20349 9.37229 8.37231ZM19.434 6.04229C19.434 6.37873 19.3003 6.70139 19.0625 6.93929C18.8246 7.17719 18.5019 7.31084 18.1655 7.31084C17.829 7.31084 17.5064 7.17719 17.2685 6.93929C17.0306 6.70139 16.8969 6.37873 16.8969 6.04229C16.8969 5.70585 17.0306 5.38319 17.2685 5.1453C17.5064 4.9074 17.829 4.77375 18.1655 4.77375C18.5019 4.77375 18.8246 4.9074 19.0625 5.1453C19.3003 5.38319 19.434 5.70585 19.434 6.04229Z" stroke="currentColor" stroke-linejoin="round"></path> </g></svg>
       ),
     },
     {
       title: "mail",
       href: "mailto:shindeshubham4241@gmail.com",
       svg: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          className="group-hover:scale-110 transition-all duration-300 ease-in-out w-6 h-6 fill-current"
-        >
-          <path
-            d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l217.6 163.2c11.4 8.5 27 8.5 38.4 0l217.6-163.2c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176v208c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V176L294.4 339.2a63.9 63.9 0 0 1-76.8 0L0 176z"
-          />
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m22 7l-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect width="20" height="16" x="2" y="4" rx="2" /></svg>
       ),
     },
   ];
 
   return (
-    <div className="fixed top-6 right-6 z-50 flex flex-col items-end pointer-events-none" >
-      {/* Pointer events auto for children */}
-      <div
-        className="pointer-events-auto relative"
-
-      >
-        <motion.button
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/20 dark:bg-white/10 backdrop-blur-xl border border-white/30 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/15 hover:border-white/40 dark:hover:border-white/25 transition-all duration-300 group text-foreground cursor-pointer"
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.98 }}
-          style={{
-            boxShadow: `
-              0 8px 32px rgba(0, 0, 0, 0.12),
-              0 2px 8px rgba(0, 0, 0, 0.08),
-              inset 0 1px 1px rgba(255, 255, 255, 0.4),
-              inset 0 -1px 1px rgba(0, 0, 0, 0.05),
-              0 0 0 0.5px rgba(255, 255, 255, 0.2)
-            `
-          }}
-        >
-          <span className="font-title tracking-wider text-sm font-semibold group-hover:text-primary transition-colors">CONNECT</span>
+    <>
+      {/* Desktop: Fixed vertical links on right side, centered */}
+      <div className="hidden md:flex fixed top-1/2 right-6 -translate-y-1/2 z-50 flex-col gap-3 items-end pointer-events-auto">
+        {contactLinks.map((link, i) => (
           <motion.div
-            animate={{ rotate: isOpen ? 180 : 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            key={link.title}
+            className="relative"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: i * 0.1, type: "spring", stiffness: 300, damping: 20 }}
+            onMouseEnter={() => setHoveredLink(link.title)}
+            onMouseLeave={() => setHoveredLink(null)}
           >
-            <ChevronDown size={16} className="group-hover:text-primary transition-colors" />
+            <motion.a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-white/20 dark:bg-white/10 backdrop-blur-xl border border-white/30 dark:border-white/20 text-black/70 dark:text-white/90 hover:bg-white/30 dark:hover:bg-white/15 hover:text-foreground transition-all duration-300 overflow-hidden group"
+              style={{
+                boxShadow: `
+            0 8px 32px rgba(0, 0, 0, 0.12),
+            0 2px 8px rgba(0, 0, 0, 0.08),
+            inset 0 1px 1px rgba(255, 255, 255, 0.4),
+            inset 0 -1px 1px rgba(0, 0, 0, 0.05),
+            0 0 0 0.5px rgba(255, 255, 255, 0.2)
+          `
+              }}
+              whileHover={{
+                x: -5,
+                scale: 1.1,
+                transition: { type: "tween", stiffness: 200, damping: 10 }
+              }}
+              whileTap={{
+                scale: 0.95,
+                transition: { type: "spring", stiffness: 200, damping: 10 }
+              }}
+            >
+              {link.svg}
+            </motion.a>
+
+            {/* Tooltip */}
+            <AnimatePresence>
+              {hoveredLink === link.title && (
+                <motion.div
+                  initial={{ opacity: 0, x: 10, scale: 0.8 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: 5, scale: 0.8 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  className="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-popover/90 text-popover-foreground dark:bg-zinc-900/90 dark:text-zinc-100 text-xs font-semibold rounded-lg whitespace-nowrap border border-border/50 dark:border-white/10 shadow-xl dark:shadow-white/10 backdrop-blur-md pointer-events-none z-50"
+                >
+                  {link.title.charAt(0).toUpperCase() + link.title.slice(1)}
+                  {/* Tooltip Arrow */}
+                  <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-2 h-2 bg-popover/90 dark:bg-zinc-900/90 rotate-45 border-r border-b border-border/50 dark:border-white/10" />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
-        </motion.button>
+        ))}
       </div>
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20, height: 0 }}
-            animate={{ opacity: 1, y: 0, height: 'auto' }}
-            exit={{ opacity: 0, y: -20, height: 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="pointer-events-auto mt-4 flex flex-col gap-3 items-end origin-top-right overflow-visible"
+      {/* Mobile: Connect dropdown button (sm and below) */}
+      <div className="md:hidden fixed top-6 right-6 z-50 flex flex-col items-end pointer-events-none">
+        <div className="pointer-events-auto relative">
+          <motion.button
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/20 dark:bg-white/10 backdrop-blur-xl border border-white/30 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/15 hover:border-white/40 dark:hover:border-white/25 transition-all duration-300 group text-foreground cursor-pointer"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            style={{
+              boxShadow: `
+                0 8px 32px rgba(0, 0, 0, 0.12),
+                0 2px 8px rgba(0, 0, 0, 0.08),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.05),
+                0 0 0 0.5px rgba(255, 255, 255, 0.2)
+              `
+            }}
           >
-            {contactLinks.map((link, i) => (
-              <motion.div
-                key={link.title}
-                className="relative"
-                initial={{ opacity: 0, y: -20, scale: 0.8 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -10, scale: 0.8 }}
-                transition={{ delay: i * 0.05, type: "spring", stiffness: 300, damping: 20 }}
-                onMouseEnter={() => setHoveredLink(link.title)}
-                onMouseLeave={() => setHoveredLink(null)}
-              >
-                <motion.a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center rounded-2xl bg-white/20 dark:bg-white/10 backdrop-blur-xl border border-white/30 dark:border-white/20 text-muted-foreground hover:bg-white/30 dark:hover:bg-white/15 hover:text-primary transition-all duration-500 ease-out group"
-                  style={{
-                    boxShadow: `
-                      0 8px 32px rgba(0, 0, 0, 0.12),
-                      0 2px 8px rgba(0, 0, 0, 0.08),
-                      inset 0 1px 1px rgba(255, 255, 255, 0.4),
-                      inset 0 -1px 1px rgba(0, 0, 0, 0.05),
-                      0 0 0 0.5px rgba(255, 255, 255, 0.2)
-                    `
-                  }}
-                  whileHover={{
-                    x: -5,
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 400, damping: 25 }
-                  }}
-                  whileTap={{
-                    scale: 0.95,
-                    transition: { duration: 0.1 }
-                  }}
-                >
-                  {link.svg}
-                </motion.a>
+            <span className="font-title tracking-wider text-sm font-semibold group-hover:text-primary transition-colors">CONNECT</span>
+            <motion.div
+              animate={{ rotate: isOpen ? 180 : 0 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            >
+              <ChevronDown size={16} className="group-hover:text-primary transition-colors" />
+            </motion.div>
+          </motion.button>
+        </div>
 
-                {/* Tooltip */}
-                <AnimatePresence>
-                  {hoveredLink === link.title && (
-                    <motion.div
-                      initial={{ opacity: 0, x: 10, scale: 0.8 }}
-                      animate={{ opacity: 1, x: 0, scale: 1 }}
-                      exit={{ opacity: 0, x: 5, scale: 0.8 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                      className="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-popover/90 text-popover-foreground dark:bg-zinc-900/90 dark:text-zinc-100 text-xs font-semibold rounded-lg whitespace-nowrap border border-border/50 dark:border-white/10 shadow-xl dark:shadow-white/10 backdrop-blur-md pointer-events-none z-50"
-                    >
-                      {link.title.charAt(0).toUpperCase() + link.title.slice(1)}
-                      {/* Tooltip Arrow */}
-                      <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-2 h-2 bg-popover/90 dark:bg-zinc-900/90 rotate-45 border-r border-b border-border/50 dark:border-white/10" />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20, height: 0 }}
+              animate={{ opacity: 1, y: 0, height: 'auto' }}
+              exit={{ opacity: 0, y: -20, height: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="pointer-events-auto mt-4 flex flex-col gap-3 items-end origin-top-right overflow-visible"
+            >
+              {contactLinks.map((link, i) => (
+                <motion.div
+                  key={link.title}
+                  className="relative"
+                  initial={{ opacity: 0, y: -20, scale: 0.8 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -10, scale: 0.8 }}
+                  transition={{ delay: i * 0.05, type: "spring", stiffness: 300, damping: 20 }}
+                  onMouseEnter={() => setHoveredLink(link.title)}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
+                  <motion.a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 flex items-center justify-center rounded-full bg-white/20 dark:bg-white/10 border-white/30 dark:border-white/20 backdrop-blur-xl hover:bg-white/30 dark:hover:bg-white/15 text-black/70 dark:text-white/90 hover:text-foreground"
+                    style={{
+                      boxShadow: `
+            0 8px 32px rgba(0, 0, 0, 0.12),
+            0 2px 8px rgba(0, 0, 0, 0.08),
+            inset 0 1px 1px rgba(255, 255, 255, 0.4),
+            inset 0 -1px 1px rgba(0, 0, 0, 0.05),
+            0 0 0 0.5px rgba(255, 255, 255, 0.2)
+          `
+                    }}
+                    whileHover={{
+                      x: -5,
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 200, damping: 10 }
+                    }}
+                    whileTap={{
+                      scale: 0.95,
+                      transition: { type: "spring", stiffness: 300, damping: 10 }
+                    }}
+                  >
+                    {link.svg}
+                  </motion.a>
+
+                  {/* Tooltip */}
+                  <AnimatePresence>
+                    {hoveredLink === link.title && (
+                      <motion.div
+                        initial={{ opacity: 0, x: 10, scale: 0.8 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        exit={{ opacity: 0, x: 5, scale: 0.8 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                        className="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-popover/90 text-popover-foreground dark:bg-zinc-900/90 dark:text-zinc-100 text-xs font-semibold rounded-lg whitespace-nowrap border border-border/50 dark:border-white/10 shadow-xl dark:shadow-white/10 backdrop-blur-md pointer-events-none z-50"
+                      >
+                        {link.title.charAt(0).toUpperCase() + link.title.slice(1)}
+                        {/* Tooltip Arrow */}
+                        <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-2 h-2 bg-popover/90 dark:bg-zinc-900/90 rotate-45 border-r border-b border-border/50 dark:border-white/10" />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </>
   );
 };
