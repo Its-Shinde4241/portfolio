@@ -61,7 +61,7 @@ export const HomeSection: React.FC = () => {
           className="w-40 h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-[0_0_40px_rgba(14,165,233,0.2)] mb-2 relative group pointer-events-none"
         >
           <div className="absolute inset-0 transition-colors duration-500 z-10" />
-          <img src={profile.src} alt="Profile" className="w-full h-full object-cover contrast-105" />
+          <img src={"/logo.png"} alt="Profile" className="w-full h-full object-cover contrast-105" />
         </motion.div>
 
         <div className="space-y-4 pointer-events-none">

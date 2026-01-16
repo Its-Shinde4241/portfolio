@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shubham Shinde - The Engineer",
+    title: "Shubham Shinde - Technophile",
     description:
       "The Engineer - Full Stack Developer & problem solver. Building interactive web experiences through thoughtful UI design and careful attention to detail.",
     images: ["https://shubhamshinde.engineer/preview.png"],

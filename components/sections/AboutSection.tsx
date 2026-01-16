@@ -6,7 +6,7 @@ export const AboutSection: React.FC = () => {
   return (
     <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-12 items-center justify-center p-6">
       <div className="flex-1 space-y-6">
-        <h2 className="font-title text-4xl text-foreground">Who I Am</h2>
+        <h2 className="font-title text-4xl text-foreground">Who Am I ?</h2>
 
         <p className="text-muted-foreground text-lg leading-relaxed">
           I'm a Computer Engineering undergrad at the prestigious <span className="text-foreground font-semibold">Pune Institute of Computer Technology (PICT)</span>, maintaining a stellar <span className="text-primary font-bold">CGPA of 9.80</span>. My academic journey is built on a foundation of excellence, demonstrated by securing rank <span className="text-foreground font-semibold">612</span> (99.71 percentile) in MHT-CET among over 2.5 lakh aspirants.
