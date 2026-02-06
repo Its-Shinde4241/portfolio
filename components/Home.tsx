@@ -92,10 +92,17 @@ export default function Home() {
                 clickY,
                 theme === 'dark' ?
                     "https://media.giphy.com/media/aMyRwAzoxNab851XFj/giphy.gif"
+                    // "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NDc4cXJ1Y2x0OW94aHFjNmhtYWd2YXRhNXRqYzZiODdkaDFqMWJ2YyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/fG92Ls8iI5CJG/giphy.gif"
+                    // "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3bWpjYm96ZnI4cGI1Z29yYzEzN2t3NmY3N3p1d3l5dHJwMGthaGZoMyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/5KCXDVmBcTL8gpOO5C/giphy.gif"
                     :
                     "https://media.giphy.com/media/KBbr4hHl9DSahKvInO/giphy.gif?cid=790b76112m5eeeydoe7et0cr3j3ekb1erunxozyshuhxx2vl&ep=v1_stickers_search&rid=giphy.gif&ct=s"
+                // "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDljaXF0Z2wweDBzYzZqMzMzZmZqZDM0ejRvdmlrOXBhMHVkOHJ1cCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/QXPtPqPaitlJH3DTJg/giphy.gif"
+                // "https://media.giphy.com/media/aMyRwAzoxNab851XFj/giphy.gif"
+                // "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3M2p1ZG54Y3JkcWRzemxieG4wdjkzNTFleHRkNmZjc3lidzRhMmtiMiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/QhSCMLhsQg8oR87QJW/giphy.gif"
 
             );
+        } else if (id === 'resume') {
+            window.open('https://drive.google.com/file/d/1_UC8_HMbvUXVwpAlfbs9eBdKl_cs9fyn/view?usp=drive_link', '_blank');
         } else if (id === 'resume') {
             window.open('https://drive.google.com/file/d/1_UC8_HMbvUXVwpAlfbs9eBdKl_cs9fyn/view?usp=drive_link', '_blank');
         } else {
@@ -172,7 +179,7 @@ export default function Home() {
                             <ProjectsSection />
                         </section>
 
-                        <section id="footer" className=" flex items-center justify-center mb-20">
+                        <section id="resume" className=" flex items-center justify-center mb-20">
                             <Footer />
                         </section>
 

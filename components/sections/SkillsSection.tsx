@@ -3,7 +3,7 @@ import { allSkills, coreSubjects } from '../../data/skills';
 import Magnet from '../ui/Magnet';
 import { Highlighter } from '../ui/highlighter';
 import { BlurFade } from '../ui/blur-fade';
-import { IconCloud } from '../ui/icon-cloud';
+import { IconCloud } from '../ui/Iconcloud';
 
 export const SkillsSection: React.FC = () => {
   return (

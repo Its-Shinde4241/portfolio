@@ -1,9 +1,10 @@
-import React from 'react'
+"use client"
+
+import React, { useEffect, useState } from 'react'
 import { Cloud, ICloud, renderSimpleIcon, SimpleIcon } from 'react-icon-cloud'
 import { useTheme } from 'next-themes'
 import * as simpleIcons from 'simple-icons'
 import { Const } from '../../lib/const'
-// import { usePortfolio } from '../hooks/use_portfolio_context'
 const slugs = [
     "java",
     "spring",
@@ -106,6 +107,15 @@ const getPortfolioIcons = ({
 export const IconCloud = React.memo(() => {
     // const { icons } = usePortfolio()
     const { theme } = useTheme()
+    const [mounted, setMounted] = useState(false)
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
+    if (!mounted) {
+        return null
+    }
 
     return <Cloud {...cloudProps}>{getPortfolioIcons({
         theme: theme as string,
