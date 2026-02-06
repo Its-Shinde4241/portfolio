@@ -3,7 +3,7 @@ import React from 'react';
 // Adds a cinematic grain/scratch effect
 export const GrungeOverlay: React.FC<{ opacity?: number }> = ({ opacity = 0.15 }) => {
   return (
-    <div 
+    <div
       className="pointer-events-none absolute inset-0 z-50 mix-blend-overlay"
       style={{ opacity }}
     >

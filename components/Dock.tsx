@@ -17,7 +17,7 @@ export const Dock: React.FC<DockProps> = ({ items, activeId, onSelect }) => {
     magnifiedWidth: 90,
     distance: 150,
     gap: 'gap-4',
-    marginBottom: 'bottom-6'
+    marginBottom: 'bottom-2'
   });
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export const Dock: React.FC<DockProps> = ({ items, activeId, onSelect }) => {
           magnifiedWidth: 90,
           distance: 150,
           gap: 'gap-4',
-          marginBottom: 'bottom-6'
+          marginBottom: 'bottom-2'
         });
       }
     };
@@ -119,30 +119,22 @@ const DockIcon: React.FC<DockIconProps> = ({
       {isActive && !isAction && (
         <motion.div
           layoutId="activeDot"
-          className="absolute -bottom-4 w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_8px_rgba(14,165,233,0.8)]"
+          className="absolute -bottom-4 w-1.5 h-1.5 bg-primary rounded-full "
         />
       )}
 
       <motion.div
-        className={`h-full w-full rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden border ${isActive && !isAction
-          ? 'bg-foreground/90 text-muted/90 scale-105 border-foreground/50 backdrop-blur-xl'
-          : 'bg-white/20 dark:bg-white/10 border-white/30 dark:border-white/20 backdrop-blur-xl hover:bg-white/30 dark:hover:bg-white/15 text-black/70 dark:text-white/90 hover:text-foreground'
+        className={`h-full w-full rounded-2xl flex items-center justify-center transition-all duration-300 overflow-hidden border shadow-[0_4px_12px_rgba(0,0,0,0.15)] dark:shadow-[0_4px_12px_rgba(0,0,0,0.4)] ${isActive && !isAction
+          ? 'bg-primary text-primary-foreground scale-105 border-primary'
+          : 'bg-white/60 dark:bg-zinc-900/60 border-zinc-200 dark:border-white/10 backdrop-blur-md hover:bg-white/80 dark:hover:bg-zinc-800/80 text-muted-foreground hover:text-foreground'
           }`}
-        style={{
-          boxShadow: `
-            0 8px 32px rgba(0, 0, 0, 0.12),
-            0 2px 8px rgba(0, 0, 0, 0.08),
-            inset 0 1px 1px rgba(255, 255, 255, 0.4),
-            inset 0 -1px 1px rgba(0, 0, 0, 0.05),
-            0 0 0 0.5px rgba(255, 255, 255, 0.2)
-          `
-        }}
       >
         <div className="relative z-10 w-full h-full flex items-center justify-center p-2">
           {item.icon}
         </div>
       </motion.div>
 
+      {/* Tooltip */}
       <AnimatePresence>
         {isHovered && (
           <motion.div
@@ -150,9 +142,10 @@ const DockIcon: React.FC<DockIconProps> = ({
             animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
             exit={{ opacity: 0, y: 5, x: "-50%", scale: 0.8 }}
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            className="absolute -top-16 left-1/2 px-3 py-1.5 bg-popover/90 text-popover-foreground dark:bg-zinc-900/90 dark:text-zinc-100 text-xs font-semibold rounded-lg whitespace-nowrap border border-border/50 dark:border-white/10 shadow-xl dark:shadow-white/10 backdrop-blur-md pointer-events-none z-50"
+            className="absolute -top-16 left-1/2 px-3 py-1.5 bg-popover/90 text-popover-foreground dark:bg-zinc-900/90 dark:text-zinc-100 text-xs font-semibold rounded-lg whitespace-nowrap border border-border/50 dark:border-white/10 shadow-xl backdrop-blur-md pointer-events-none z-50"
           >
             {item.label}
+            {/* Tooltip Arrow */}
             <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-popover/90 dark:bg-zinc-900/90 rotate-45 border-r border-b border-border/50 dark:border-white/10" />
           </motion.div>
         )}

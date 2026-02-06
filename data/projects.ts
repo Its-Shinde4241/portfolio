@@ -15,6 +15,22 @@ export const projects: Project[] = [
     backimage: intelliroom.src,
   },
   {
+    name: "Prajanetra",
+    description:
+      "Developed a civic engagement platform enabling <strong>citizens</strong> to report <strong>municipal issues</strong> directly to corporations. Implemented <strong>real-time</strong> complaint tracking, community feedback system, and <strong>anonymous reporting</strong> with secure data handling.",
+    technologies: [
+      "spring boot",
+      "Java",
+      "react",
+      "supabase buckets",
+      "tailwind css",
+      "shadcn ui",
+    ],
+    url: null,
+    github: "https://github.com/Its-Shinde4241/PrajaNetra/tree/dev",
+    backimage: prajanetra.src,
+  },
+  {
     name: "Wellify",
     description:
       "A smart, intuitive healthcare web application built to <strong> bridge </strong> the gap between <strong> patients </strong>  and <strong> doctors </strong>.",
@@ -32,22 +48,7 @@ export const projects: Project[] = [
     github: "https://github.com/Its-Shinde4241/Wellify",
     backimage: wellify.src,
   },
-  {
-    name: "Prajanetra",
-    description:
-      "Developed a civic engagement platform enabling <strong>citizens</strong> to report <strong>municipal issues</strong> directly to corporations. Implemented <strong>real-time</strong> complaint tracking, community feedback system, and <strong>anonymous reporting</strong> with secure data handling.",
-    technologies: [
-      "spring boot",
-      "Java",
-      "react",
-      "supabase buckets",
-      "tailwind css",
-      "shadcn ui",
-    ],
-    url: null,
-    github: "https://github.com/Its-Shinde4241/PrajaNetra/tree/dev",
-    backimage: prajanetra.src,
-  },
+
   {
     name: "Sr-Jr Connect",
     description:

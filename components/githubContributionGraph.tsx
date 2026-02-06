@@ -174,7 +174,7 @@ export const GitHubContributionGraph = ({
                         {/* Vertical GitHub label */}
                         <div className="flex items-center justify-center">
                             <span
-                                className="text-xs font-bold tracking-[0.3em] uppercase text-muted-foreground/90 whitespace-nowrap -mt-8"
+                                className="text-xs font-bold tracking-[0.3em] uppercase text-muted-foreground/90 whitespace-nowrap -mt-8 select-none"
                                 style={{
                                     writingMode: 'vertical-rl',
                                     textOrientation: 'mixed',

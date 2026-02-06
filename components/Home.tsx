@@ -1,10 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
 import { Dock } from '../components/Dock';
 import { GrungeOverlay } from '../components/GrungeOverlay';
-import { TopRightConnect } from '../components/TopRightConnect';
 import { Home as HomeIcon, User, FileText, FolderOpen, Trophy } from 'lucide-react';
 import { NavItem } from '../types';
 import { useTheme } from 'next-themes';
@@ -13,8 +11,9 @@ import { AboutSection } from '../components/sections/AboutSection';
 import { JourneySection } from '../components/sections/JourneySection';
 import { SkillsSection } from '../components/sections/SkillsSection';
 import { ProjectsSection } from '../components/sections/ProjectsSection';
-import { ResumeSection } from '../components/sections/ResumeSection';
+import { Footer } from './sections/Footer';
 import { useThemeTransitionAnimation } from '@/components/themeAnimator';
+import { DotPattern } from './ui/dot-pattern';
 
 export default function Home() {
     // const [showIntro, setShowIntro] = useState(true);
@@ -25,7 +24,6 @@ export default function Home() {
 
     const navItems: NavItem[] = [
         { id: 'home', label: 'Home', icon: <HomeIcon size={22} /> },
-        { id: 'about', label: 'About', icon: <User size={22} /> },
         {
             id: 'journey',
             label: 'Journey',
@@ -94,19 +92,20 @@ export default function Home() {
                 clickY,
                 theme === 'dark' ?
                     "https://media.giphy.com/media/aMyRwAzoxNab851XFj/giphy.gif"
-                    // "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NDc4cXJ1Y2x0OW94aHFjNmhtYWd2YXRhNXRqYzZiODdkaDFqMWJ2YyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/fG92Ls8iI5CJG/giphy.gif"
-                    // "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3bWpjYm96ZnI4cGI1Z29yYzEzN2t3NmY3N3p1d3l5dHJwMGthaGZoMyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/5KCXDVmBcTL8gpOO5C/giphy.gif"
                     :
                     "https://media.giphy.com/media/KBbr4hHl9DSahKvInO/giphy.gif?cid=790b76112m5eeeydoe7et0cr3j3ekb1erunxozyshuhxx2vl&ep=v1_stickers_search&rid=giphy.gif&ct=s"
-                // "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDljaXF0Z2wweDBzYzZqMzMzZmZqZDM0ejRvdmlrOXBhMHVkOHJ1cCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/QXPtPqPaitlJH3DTJg/giphy.gif"
-                // "https://media.giphy.com/media/aMyRwAzoxNab851XFj/giphy.gif"
-                // "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3M2p1ZG54Y3JkcWRzemxieG4wdjkzNTFleHRkNmZjc3lidzRhMmtiMiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/QhSCMLhsQg8oR87QJW/giphy.gif"
 
             );
+        } else if (id === 'resume') {
+            window.open('https://drive.google.com/file/d/1_UC8_HMbvUXVwpAlfbs9eBdKl_cs9fyn/view?usp=drive_link', '_blank');
         } else {
-            const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
+            if (id === 'home') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         }
     };
@@ -141,43 +140,43 @@ export default function Home() {
 
     return (
         <>
-            <AnimatePresence>
-                {/* {showIntro && <Intro onComplete={() => setShowIntro(false)} />} */}
-            </AnimatePresence>
-
             <div className={`min-h-screen w-full relative transition-all duration-1000 `}>
 
                 <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
                     {theme == "dark" && <GrungeOverlay opacity={0.08} />}
                 </div>
 
-                <TopRightConnect />
+                {/* <TopRightConnect /> */}
 
-                <main className="relative z-10 w-full flex flex-col pb-24">
+                <main className="flex justify-center px-5 relative z-20 bg-linear-to-r from-accent/10 via-background/80 to-foreground/10 dark:from-accent/20 dark:via-background/90 dark:to-foreground/20 transition-colors duration-1000">
+                    <DotPattern glowIntensity={0} gap={18} dotSize={2.2} />
 
-                    <section id="home" className="min-h-screen flex items-center justify-center p-4">
-                        <HomeSection />
-                    </section>
+                    <div className='flex flex-col my-5 w-full max-w-2xl min-h-screen gap-6 '>
+                        <div id="home" className=" flex flex-col gap-8 mt-8 md:mt-12 lg:mt-18">
+                            <HomeSection />
+                        </div>
 
-                    <section id="about" className="min-h-screen flex items-center justify-center p-4 ">
-                        <AboutSection />
-                    </section>
+                        <section id="about" className=" flex items-center justify-center">
+                            <AboutSection />
+                        </section>
 
-                    <section id="journey" className="min-h-screen flex items-center justify-center p-4">
-                        <JourneySection />
-                    </section>
+                        <section id="journey" className=" flex items-center justify-center">
+                            <JourneySection />
+                        </section>
 
-                    <section id="skills" className="min-h-screen flex items-center justify-center p-4 ">
-                        <SkillsSection />
-                    </section>
+                        <section id="skills" className=" flex items-center justify-center">
+                            <SkillsSection />
+                        </section>
 
-                    <section id="projects" className="min-h-screen flex items-center justify-center p-4">
-                        <ProjectsSection />
-                    </section>
+                        <section id="projects" className=" flex items-center justify-center p-4">
+                            <ProjectsSection />
+                        </section>
 
-                    <section id="resume" className="min-h-[50vh] flex items-center justify-center p-4 mb-20">
-                        <ResumeSection />
-                    </section>
+                        <section id="footer" className=" flex items-center justify-center mb-20">
+                            <Footer />
+                        </section>
+
+                    </div>
 
                 </main>
 
