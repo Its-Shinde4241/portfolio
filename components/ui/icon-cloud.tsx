@@ -1,8 +1,9 @@
-"use client";
-
-import { useEffect, useState, useMemo } from "react";
-import { Cloud, fetchSimpleIcons, renderSimpleIcon, SimpleIcon } from "react-icon-cloud";
-
+import React from 'react'
+import { Cloud, ICloud, renderSimpleIcon, SimpleIcon } from 'react-icon-cloud'
+import { useTheme } from 'next-themes'
+import * as simpleIcons from 'simple-icons'
+import { Const } from '../../lib/const'
+// import { usePortfolio } from '../hooks/use_portfolio_context'
 const slugs = [
     "java",
     "spring",
@@ -36,59 +37,80 @@ const slugs = [
     "json",
 ];
 
-export function IconCloud() {
-    const [icons, setIcons] = useState<SimpleIcon[] | null>(null);
+type SimpleIconsModule = typeof simpleIcons
 
-    useEffect(() => {
-        fetchSimpleIcons({ slugs }).then((data) => {
-            setIcons(Object.values(data.simpleIcons));
-        });
-    }, []);
+const iconsFromSlugs = slugs
+    .map((slug) => {
+        const iconKey = `si${slug.charAt(0).toUpperCase()}${slug.slice(1)}` as keyof SimpleIconsModule
+        return simpleIcons[iconKey]
+    })
+    .filter((icon) => Boolean(icon)) as SimpleIcon[]
 
-    const renderedIcons = useMemo(() => {
-        if (!icons) return null;
-
-        return icons.map((icon) =>
-            renderSimpleIcon({
-                icon,
-                size: 42,
-                aProps: {
-                    onClick: (e) => e.preventDefault(),
-                },
-            })
-        );
-    }, [icons]);
-
-    return (
-        <div className="flex items-center justify-center py-10">
-            <div className="relative flex size-[350px] items-center justify-center overflow-hidden rounded-lg">
-                {renderedIcons ? (
-                    <Cloud
-                        options={{
-                            clickToFront: 500,
-                            depth: 1,
-                            imageScale: 2,
-
-                            initial: [0.1, -0.1],
-
-                            minSpeed: 0.03,
-                            maxSpeed: 0.04,
-
-                            outlineColour: "#0000",
-                            reverse: true,
-                            tooltip: "native",
-                            tooltipDelay: 0,
-                            wheelZoom: false,
-                        }}
-                    >
-                        {renderedIcons}
-                    </Cloud>
-                ) : (
-                    <div className="flex items-center justify-center">
-                        <div className="h-8 w-8 animate-spin rounded-full border-b-2 border-primary"></div>
-                    </div>
-                )}
-            </div>
-        </div>
-    );
+const cloudProps: Omit<ICloud, 'children'> = {
+    id: 'stable-id-for-csr-ssr',
+    containerProps: {
+        style: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginLeft: Const.pad * 2,
+            marginRight: Const.pad * 2,
+        },
+    },
+    canvasProps: {
+        style: {
+            maxWidth: '60%',
+        },
+    },
+    options: {
+        reverse: true,
+        depth: 1,
+        wheelZoom: false,
+        imageScale: 2,
+        activeCursor: 'default',
+        tooltip: 'native',
+        initial: [0.1, -0.1],
+        clickToFront: 500,
+        tooltipDelay: 0,
+        outlineColour: '#0000',
+    },
 }
+
+const getPortfolioIcons = ({
+    theme,
+    icons,
+}: {
+    theme: string
+    icons: SimpleIcon[]
+}) => {
+    const bgHex = theme === 'light' ? '#f3f2ef' : '#080510'
+    const fallbackHex = theme === 'light' ? '#6e6e73' : '#a1a1a6'
+    const minContrastRatio = theme === 'dark' ? 2 : 1.2
+
+    return icons.map((icon) => {
+        return renderSimpleIcon({
+            icon,
+            bgHex,
+            fallbackHex,
+            minContrastRatio,
+            aProps: {
+                href: '#',
+                onClick: (e) => {
+                    e.preventDefault()
+                },
+            },
+        })
+    })
+}
+
+export const IconCloud = React.memo(() => {
+    // const { icons } = usePortfolio()
+    const { theme } = useTheme()
+
+    return <Cloud {...cloudProps}>{getPortfolioIcons({
+        theme: theme as string,
+        icons: iconsFromSlugs,
+    })}</Cloud>
+})
+
+IconCloud.displayName = 'IconCloud'
