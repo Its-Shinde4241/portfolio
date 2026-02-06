@@ -1,14 +1,71 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTheme } from "next-themes";
 import {
     Cloud,
     ICloud,
     renderSimpleIcon,
 } from "react-icon-cloud";
-import * as simpleIcons from "simple-icons";
+
+// Import only the icons we need
+import {
+    siJavascript,
+    siCplusplus,
+    siPython,
+    siHtml5,
+    siNextdotjs,
+    siExpress,
+    siNodedotjs,
+    siTailwindcss,
+    siPrisma,
+    siGit,
+    siGithub,
+    siVercel,
+    siPostman,
+    siDocker,
+    siMongodb,
+    siPostgresql,
+    siLinux,
+    siRedis,
+    siSupabase,
+    siHibernate,
+    siSpring,
+    siMysql,
+    siReact,
+    siFirebase,
+    siJira,
+} from "simple-icons";
 import type { SimpleIcon } from "simple-icons";
+
+// Map slugs to imported icons
+const iconMap: Record<string, SimpleIcon> = {
+    javascript: siJavascript,
+    cplusplus: siCplusplus,
+    python: siPython,
+    html5: siHtml5,
+    nextdotjs: siNextdotjs,
+    express: siExpress,
+    nodedotjs: siNodedotjs,
+    tailwindcss: siTailwindcss,
+    prisma: siPrisma,
+    git: siGit,
+    github: siGithub,
+    vercel: siVercel,
+    postman: siPostman,
+    docker: siDocker,
+    mongodb: siMongodb,
+    postgresql: siPostgresql,
+    linux: siLinux,
+    redis: siRedis,
+    supabase: siSupabase,
+    hibernate: siHibernate,
+    spring: siSpring,
+    mysql: siMysql,
+    react: siReact,
+    firebase: siFirebase,
+    jira: siJira,
+};
 
 export const cloudProps: Omit<ICloud, "children"> = {
     containerProps: {
@@ -62,18 +119,28 @@ export type DynamicCloudProps = {
 
 export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
     const { theme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const renderedIcons = useMemo(() => {
+        if (!mounted) return [];
+
         return iconSlugs.map((slug) => {
-            // Convert slug to simple-icons format (e.g., "react" -> "siReact")
-            const iconKey = `si${slug.charAt(0).toUpperCase()}${slug.slice(1)}` as keyof typeof simpleIcons;
-            const icon = simpleIcons[iconKey] as SimpleIcon | undefined;
+            const icon = iconMap[slug];
             if (icon) {
                 return renderCustomIcon(icon, theme || "light");
             }
+            console.warn(`Icon not found for slug: ${slug}`);
             return null;
         }).filter(Boolean);
-    }, [iconSlugs, theme]);
+    }, [iconSlugs, theme, mounted]);
+
+    if (!mounted) {
+        return <div style={{ height: "400px" }} />; // Placeholder to prevent layout shift
+    }
 
     return (
         // @ts-ignore
