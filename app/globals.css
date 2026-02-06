@@ -137,3 +137,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+.icon-cloud-container,
+#canvas-container-icon-cloud {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.icon-cloud-canvas {
+  display: block;
+}

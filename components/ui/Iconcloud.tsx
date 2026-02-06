@@ -102,8 +102,10 @@ export const IconCloud = React.memo(() => {
     const safeTheme = (resolvedTheme ?? theme ?? 'light') as string
 
     return <Cloud
+        id="icon-cloud"
         key={cloudKey}
         containerProps={{
+            className: 'icon-cloud-container',
             style: {
                 display: 'flex',
                 justifyContent: 'center',
@@ -113,6 +115,7 @@ export const IconCloud = React.memo(() => {
             },
         }}
         canvasProps={{
+            className: 'icon-cloud-canvas',
             style: {
                 width: '100%',
                 height: '100%',

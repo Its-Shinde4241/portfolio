@@ -1,9 +1,15 @@
+"use client";
+
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { allSkills, coreSubjects } from '../../data/skills';
 import Magnet from '../ui/Magnet';
 import { Highlighter } from '../ui/highlighter';
 import { BlurFade } from '../ui/blur-fade';
-import { IconCloud } from '../ui/Iconcloud';
+
+const IconCloud = dynamic(() => import('../ui/Iconcloud').then((mod) => mod.IconCloud), {
+  ssr: false,
+});
 
 export const SkillsSection: React.FC = () => {
   return (
