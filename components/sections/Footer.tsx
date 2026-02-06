@@ -7,9 +7,11 @@ import { format } from 'date-fns';
 import Link from 'next/link';
 
 export const Footer: React.FC = () => {
-  const [currentTime, setCurrentTime] = useState(new Date());
+  const [currentTime, setCurrentTime] = useState<Date | null>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -100,12 +102,18 @@ export const Footer: React.FC = () => {
           {/* Right */}
           <div className="space-y-1 text-right">
             <p suppressHydrationWarning>
-              <span className="hidden sm:inline">
-                {format(currentTime, "hh:mm:ss a")}
-              </span>
-              <span className="sm:hidden">
-                {format(currentTime, "hh:mm a")}
-              </span>
+              {mounted && currentTime ? (
+                <>
+                  <span className="hidden sm:inline">
+                    {format(currentTime, "hh:mm:ss a")}
+                  </span>
+                  <span className="sm:hidden">
+                    {format(currentTime, "hh:mm a")}
+                  </span>
+                </>
+              ) : (
+                <span className="hidden sm:inline">--:--:--</span>
+              )}
             </p>
           </div>
         </div>

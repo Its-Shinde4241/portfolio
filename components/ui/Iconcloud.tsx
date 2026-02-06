@@ -46,37 +46,6 @@ const iconsFromSlugs = slugs
         return simpleIcons[iconKey]
     })
     .filter((icon) => Boolean(icon)) as SimpleIcon[]
-
-const cloudProps: Omit<ICloud, 'children'> = {
-    id: 'stable-id-for-csr-ssr',
-    containerProps: {
-        style: {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginLeft: Const.pad * 2,
-            marginRight: Const.pad * 2,
-        },
-    },
-    canvasProps: {
-        style: {
-            maxWidth: '60%',
-        },
-    },
-    options: {
-        reverse: true,
-        depth: 1,
-        wheelZoom: false,
-        imageScale: 2,
-        activeCursor: 'default',
-        tooltip: 'native',
-        initial: [0.1, -0.1],
-        clickToFront: 500,
-        tooltipDelay: 0,
-        outlineColour: '#0000',
-    },
-}
-
 const getPortfolioIcons = ({
     theme,
     icons,
@@ -106,19 +75,34 @@ const getPortfolioIcons = ({
 
 export const IconCloud = React.memo(() => {
     // const { icons } = usePortfolio()
-    const { theme } = useTheme()
+    const { theme, resolvedTheme } = useTheme()
     const [mounted, setMounted] = useState(false)
+    const [cloudKey, setCloudKey] = useState(0)
 
     useEffect(() => {
         setMounted(true)
     }, [])
 
+    useEffect(() => {
+        if (!mounted) {
+            return
+        }
+
+        const timer = setTimeout(() => {
+            setCloudKey((prev) => prev + 1)
+        }, 0)
+
+        return () => clearTimeout(timer)
+    }, [mounted, resolvedTheme])
+
     if (!mounted) {
         return null
     }
 
+    const safeTheme = (resolvedTheme ?? theme ?? 'light') as string
+
     return <Cloud
-        id="stable-id-for-csr-ssr"
+        key={cloudKey}
         containerProps={{
             style: {
                 display: 'flex',
@@ -149,7 +133,7 @@ export const IconCloud = React.memo(() => {
         }}
     >
         {getPortfolioIcons({
-            theme: theme as string,
+            theme: safeTheme,
             icons: iconsFromSlugs,
         })}</Cloud>
 })
