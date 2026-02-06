@@ -3,37 +3,11 @@ import { allSkills, coreSubjects } from '../../data/skills';
 import Magnet from '../ui/Magnet';
 import { Highlighter } from '../ui/highlighter';
 import { BlurFade } from '../ui/blur-fade';
-import IconCloud from '../ui/icon-cloud';
-const slugs = [
-  "javascript",
-  "cplusplus",
-  "python",
-  "html5",
-  "nextdotjs",
-  "express",
-  "nodedotjs",
-  "tailwindcss",
-  "prisma",
-  "git",
-  "github",
-  "vercel",
-  "postman",
-  "docker",
-  "mongodb",
-  "postgresql",
-  "linux",
-  "redis",
-  "supabase",
-  "hibernate",
-  "spring",
-  "mysql",
-  "react",
-  "firebase",
-  "jira"
-]
+import { IconCloud } from '../ui/icon-cloud';
+
 export const SkillsSection: React.FC = () => {
   return (
-    <div className="w-full max-w-5xl mx-auto  select-none flx flex-col">
+    <div className="w-full max-w-5xl mx-auto  select-none flex flex-col">
       <BlurFade >
         <h2 className="text-3xl font-bold mb-4">
           <Highlighter
@@ -125,7 +99,7 @@ export const SkillsSection: React.FC = () => {
       <BlurFade delay={0.3}>
         <div className='w-full flex justify-center items-center border rounded-xl'>
           <div className=' w-full flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg bg-transparent px-10 pb-10 '>
-            <IconCloud iconSlugs={slugs} />
+            <IconCloud />
           </div>
         </div>
       </BlurFade>

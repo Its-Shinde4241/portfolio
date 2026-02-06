@@ -1,151 +1,94 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { useTheme } from "next-themes";
-import {
-    Cloud,
-    ICloud,
-    renderSimpleIcon,
-} from "react-icon-cloud";
+import { useEffect, useState, useMemo } from "react";
+import { Cloud, fetchSimpleIcons, renderSimpleIcon, SimpleIcon } from "react-icon-cloud";
 
-// Import only the icons we need
-import {
-    siJavascript,
-    siCplusplus,
-    siPython,
-    siHtml5,
-    siNextdotjs,
-    siExpress,
-    siNodedotjs,
-    siTailwindcss,
-    siPrisma,
-    siGit,
-    siGithub,
-    siVercel,
-    siPostman,
-    siDocker,
-    siMongodb,
-    siPostgresql,
-    siLinux,
-    siRedis,
-    siSupabase,
-    siHibernate,
-    siSpring,
-    siMysql,
-    siReact,
-    siFirebase,
-    siJira,
-} from "simple-icons";
-import type { SimpleIcon } from "simple-icons";
+const slugs = [
+    "java",
+    "spring",
+    "react",
+    "nextdotjs",
+    "javascript",
+    "typescript",
+    "python",
+    "mysql",
+    "postgresql",
+    "mongodb",
+    "supabase",
+    "redis",
+    "docker",
+    "git",
+    "github",
+    "cplusplus",
+    "nodedotjs",
+    "html5",
+    "css3",
+    "tailwindcss",
+    "amazonaws",
+    "linux",
+    "postman",
+    "figma",
+    "vercel",
+    "npm",
+    "gradle",
+    "maven",
+    "hibernate",
+    "json",
+];
 
-// Map slugs to imported icons
-const iconMap: Record<string, SimpleIcon> = {
-    javascript: siJavascript,
-    cplusplus: siCplusplus,
-    python: siPython,
-    html5: siHtml5,
-    nextdotjs: siNextdotjs,
-    express: siExpress,
-    nodedotjs: siNodedotjs,
-    tailwindcss: siTailwindcss,
-    prisma: siPrisma,
-    git: siGit,
-    github: siGithub,
-    vercel: siVercel,
-    postman: siPostman,
-    docker: siDocker,
-    mongodb: siMongodb,
-    postgresql: siPostgresql,
-    linux: siLinux,
-    redis: siRedis,
-    supabase: siSupabase,
-    hibernate: siHibernate,
-    spring: siSpring,
-    mysql: siMysql,
-    react: siReact,
-    firebase: siFirebase,
-    jira: siJira,
-};
-
-export const cloudProps: Omit<ICloud, "children"> = {
-    containerProps: {
-        style: {
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
-            paddingTop: 40,
-        },
-    },
-    options: {
-        reverse: true,
-        depth: 1,
-        wheelZoom: false,
-        imageScale: 2,
-        activeCursor: "default",
-        tooltip: "native",
-        initial: [0.1, -0.1],
-        clickToFront: 500,
-        tooltipDelay: 0,
-        outlineColour: "#0000",
-        maxSpeed: 0.04,
-        minSpeed: 0.02,
-    },
-};
-
-export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
-    const bgHex = theme === "light" ? "#f3f2ef" : "#080510";
-    const fallbackHex = theme === "light" ? "#6e6e73" : "#ffffff";
-    const minContrastRatio = theme === "dark" ? 2 : 1.2;
-
-    return renderSimpleIcon({
-        icon,
-        bgHex,
-        fallbackHex,
-        minContrastRatio,
-        size: 42,
-        aProps: {
-            href: undefined,
-            target: undefined,
-            rel: undefined,
-            onClick: (e: any) => e.preventDefault(),
-        },
-    });
-};
-
-export type DynamicCloudProps = {
-    iconSlugs: readonly string[];
-};
-
-export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
-    const { theme } = useTheme();
-    const [mounted, setMounted] = useState(false);
+export function IconCloud() {
+    const [icons, setIcons] = useState<SimpleIcon[] | null>(null);
 
     useEffect(() => {
-        setMounted(true);
+        fetchSimpleIcons({ slugs }).then((data) => {
+            setIcons(Object.values(data.simpleIcons));
+        });
     }, []);
 
     const renderedIcons = useMemo(() => {
-        if (!mounted) return [];
+        if (!icons) return null;
 
-        return iconSlugs.map((slug) => {
-            const icon = iconMap[slug];
-            if (icon) {
-                return renderCustomIcon(icon, theme || "light");
-            }
-            console.warn(`Icon not found for slug: ${slug}`);
-            return null;
-        }).filter(Boolean);
-    }, [iconSlugs, theme, mounted]);
-
-    if (!mounted) {
-        return <div style={{ height: "400px" }} />; // Placeholder to prevent layout shift
-    }
+        return icons.map((icon) =>
+            renderSimpleIcon({
+                icon,
+                size: 42,
+                aProps: {
+                    onClick: (e) => e.preventDefault(),
+                },
+            })
+        );
+    }, [icons]);
 
     return (
-        // @ts-ignore
-        <Cloud {...cloudProps}>
-            <>{renderedIcons}</>
-        </Cloud>
+        <div className="flex items-center justify-center py-10">
+            <div className="relative flex size-[350px] items-center justify-center overflow-hidden rounded-lg">
+                {renderedIcons ? (
+                    <Cloud
+                        options={{
+                            clickToFront: 500,
+                            depth: 1,
+                            imageScale: 2,
+
+                            initial: [0.1, -0.1],
+
+                            minSpeed: 0.03,
+                            maxSpeed: 0.04,
+
+                            outlineColour: "#0000",
+                            reverse: true,
+                            tooltip: "native",
+                            tooltipDelay: 0,
+                            wheelZoom: false,
+                        }}
+                    >
+                        {renderedIcons}
+                    </Cloud>
+                ) : (
+                    <div className="flex items-center justify-center">
+                        <div className="h-8 w-8 animate-spin rounded-full border-b-2 border-primary"></div>
+                    </div>
+                )}
+            </div>
+        </div>
     );
 }
