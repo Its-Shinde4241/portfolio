@@ -117,10 +117,41 @@ export const IconCloud = React.memo(() => {
         return null
     }
 
-    return <Cloud {...cloudProps}>{getPortfolioIcons({
-        theme: theme as string,
-        icons: iconsFromSlugs,
-    })}</Cloud>
+    return <Cloud
+        id="stable-id-for-csr-ssr"
+        containerProps={{
+            style: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+                height: 400,
+            },
+        }}
+        canvasProps={{
+            style: {
+                width: '100%',
+                height: '100%',
+                maxWidth: 600,
+            },
+        }}
+        options={{
+            reverse: true,
+            depth: 1,
+            wheelZoom: false,
+            imageScale: 1.7,
+            activeCursor: 'pointer',
+            tooltip: 'native',
+            initial: [0.1, -0.1],
+            clickToFront: 500,
+            tooltipDelay: 0,
+            outlineColour: '#0000',
+        }}
+    >
+        {getPortfolioIcons({
+            theme: theme as string,
+            icons: iconsFromSlugs,
+        })}</Cloud>
 })
 
 IconCloud.displayName = 'IconCloud'
