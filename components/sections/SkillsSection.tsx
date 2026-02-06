@@ -4,11 +4,11 @@ import Magnet from '../ui/Magnet';
 import { Highlighter } from '../ui/highlighter';
 import { BlurFade } from '../ui/blur-fade';
 import IconCloud from '../ui/icon-cloud';
-const slugs = ["javascript",
+const slugs = [
+  "javascript",
   "cplusplus",
   "python",
   "html5",
-  "css3",
   "nextdotjs",
   "express",
   "nodedotjs",
@@ -21,7 +21,6 @@ const slugs = ["javascript",
   "docker",
   "mongodb",
   "postgresql",
-  "slack",
   "linux",
   "redis",
   "supabase",

@@ -99,7 +99,7 @@ export const Footer: React.FC = () => {
 
           {/* Right */}
           <div className="space-y-1 text-right">
-            <p>
+            <p suppressHydrationWarning>
               <span className="hidden sm:inline">
                 {format(currentTime, "hh:mm:ss a")}
               </span>
