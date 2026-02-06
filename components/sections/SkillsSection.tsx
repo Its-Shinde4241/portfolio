@@ -103,7 +103,7 @@ export const SkillsSection: React.FC = () => {
         </div>
       </BlurFade>
       <BlurFade delay={0.3}>
-        <div className='w-full flex justify-center items-center border rounded-xl py-10'>
+        <div className='w-full flex justify-center items-center '>
           <IconCloud />
         </div>
       </BlurFade>
