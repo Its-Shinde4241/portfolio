@@ -26,16 +26,17 @@ const slugs = [
     "html5",
     "css3",
     "tailwindcss",
-    "amazonaws",
+    "amazonwebservices",
     "linux",
     "postman",
     "figma",
     "vercel",
     "npm",
-    "gradle",
     "maven",
     "hibernate",
     "json",
+    "jira",
+
 ];
 
 type SimpleIconsModule = typeof simpleIcons

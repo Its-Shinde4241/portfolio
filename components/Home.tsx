@@ -14,9 +14,10 @@ import { ProjectsSection } from '../components/sections/ProjectsSection';
 import { Footer } from './sections/Footer';
 import { useThemeTransitionAnimation } from '@/components/themeAnimator';
 import { DotPattern } from './ui/dot-pattern';
+import { BatmanWeapon } from './BatmanWeapon';
+import { div } from 'framer-motion/client';
 
 export default function Home() {
-    // const [showIntro, setShowIntro] = useState(true);
     const [activeTab, setActiveTab] = useState('home');
     const { theme, setTheme } = useTheme();
     const { startAnimationAndTransition } = useThemeTransitionAnimation();
@@ -148,12 +149,18 @@ export default function Home() {
     return (
         <>
             <div className={`min-h-screen w-full relative transition-all duration-1000 `}>
+                {
+                    theme === "dark" &&
+
+                    (
+                        <BatmanWeapon />
+                    )
+                }
 
                 <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
                     {theme == "dark" && <GrungeOverlay opacity={0.08} />}
                 </div>
 
-                {/* <TopRightConnect /> */}
 
                 <main className="flex justify-center px-5 relative z-20 bg-linear-to-r from-accent/10 via-background/80 to-foreground/10 dark:from-accent/20 dark:via-background/90 dark:to-foreground/20 transition-colors duration-1000">
                     <DotPattern glowIntensity={0} gap={18} dotSize={2.2} />
@@ -179,7 +186,7 @@ export default function Home() {
                             <ProjectsSection />
                         </section>
 
-                        <section id="resume" className=" flex items-center justify-center mb-20">
+                        <section id="footer" className=" flex items-center justify-center mb-20">
                             <Footer />
                         </section>
 

@@ -132,7 +132,7 @@ export const HomeSection: React.FC = () => {
   return (
     <>
       {/* GitHub Contribution Graph - Fixed behind everything with fade effect */}
-      <div className=" absolute top-0 left-0 w-full overflow-hidden pointer-events-none flex items-start justify-center pt-1 z-20 bg-white/40 dark:bg-black/40">
+      <div className=" absolute top-0 left-0 w-full overflow-hidden pointer-events-none flex items-start justify-center pt-1 z-20">
         <div
           className="w-full  "
           style={{

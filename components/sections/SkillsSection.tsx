@@ -15,7 +15,7 @@ export const SkillsSection: React.FC = () => {
   return (
     <div className="w-full max-w-5xl mx-auto  select-none flex flex-col">
       <BlurFade >
-        <h2 className="text-3xl font-bold mb-4">
+        <h2 className="text-3xl font-bold mb-4 mt-4">
           <Highlighter
             action="circle"
             color="#008080"
