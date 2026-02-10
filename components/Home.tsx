@@ -149,13 +149,9 @@ export default function Home() {
     return (
         <>
             <div className={`min-h-screen w-full relative transition-all duration-1000 `}>
-                {
-                    theme === "dark" &&
 
-                    (
-                        <BatmanWeapon />
-                    )
-                }
+                <BatmanWeapon />
+
 
                 <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
                     {theme == "dark" && <GrungeOverlay opacity={0.08} />}
