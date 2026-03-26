@@ -43,7 +43,7 @@ export const educations: Education[] = [
     end: " Present",
     title: "BE Computer Engineering",
     description:
-      "Currently pursuing a Bachelor's degree in Computer Engineering with a remarkable <strong>GPA of 9.80</strong>  , focusing on software development and emerging technologies.",
+      "Currently pursuing a Bachelor's degree in Computer Engineering with a remarkable <strong>GPA of 9.66</strong>  , focusing on software development and emerging technologies.",
     place: "Pune",
     institute: "Pune Institute of Computer Technology",
     logoLink: Engineering.src,

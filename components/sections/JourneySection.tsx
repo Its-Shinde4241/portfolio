@@ -3,7 +3,6 @@ import { educations, workExperiences } from '../../data/educations';
 import { BlurFade } from '../ui/blur-fade';
 import { Highlighter } from '../ui/highlighter';
 import { ResumeCard } from '../ui/resume-card';
-import profile from '@/assets/profile.jpg';
 const BLUR_FADE_DELAY = 0.04;
 
 export const JourneySection: React.FC = () => {

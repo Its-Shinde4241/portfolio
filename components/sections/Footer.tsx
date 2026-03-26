@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { Mail, Paperclip } from 'lucide-react';
-import { BsGithub } from 'react-icons/bs';
-import { SiX } from 'react-icons/si';
-import { GrLinkedin } from 'react-icons/gr';
-import { format } from 'date-fns';
-import Link from 'next/link';
+import React, { useEffect, useState } from "react";
+import { Mail, Paperclip } from "lucide-react";
+import { BsGithub } from "react-icons/bs";
+import { SiX } from "react-icons/si";
+import { GrLinkedin } from "react-icons/gr";
+import { format } from "date-fns";
+import Link from "next/link";
 
 export const Footer: React.FC = () => {
   const [currentTime, setCurrentTime] = useState<Date | null>(null);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -62,8 +60,7 @@ export const Footer: React.FC = () => {
         </Link>
 
         <a
-          href="https://drive.google.com/file/d/1_UC8_HMbvUXVwpAlfbs9eBdKl_cs9fyn/view?usp=drive_link"
-
+          href="https://drive.google.com/file/d/17kyU8y4e8FrC-hhORWy5dKxAxJNRVcke/view?usp=sharing"
           download="Shubham_Shinde_Resume.pdf"
           className="flex items-center gap-2 hover:text-strong transition-colors"
         >
@@ -93,16 +90,14 @@ export const Footer: React.FC = () => {
               </span>
             </p>
             <p>
-              <span className="font-medium text-foreground">
-                Pune, India
-              </span>
+              <span className="font-medium text-foreground">Pune, India</span>
             </p>
           </div>
 
           {/* Right */}
           <div className="space-y-1 text-right">
             <p suppressHydrationWarning>
-              {mounted && currentTime ? (
+              {currentTime ? (
                 <>
                   <span className="hidden sm:inline">
                     {format(currentTime, "hh:mm:ss a")}
@@ -119,9 +114,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom */}
-        <div className="mt-1 text-center text-xs ">
-          © 2026 Shubham Shinde.
-        </div>
+        <div className="mt-1 text-center text-xs ">© 2026 Shubham Shinde.</div>
       </div>
     </footer>
   );

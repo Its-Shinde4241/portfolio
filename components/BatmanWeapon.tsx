@@ -1,28 +1,37 @@
-import batmanWeapon from '@/assets/batman-logo.png';
-import { useTheme } from 'next-themes';
+import batmanWeapon from "@/assets/batman-logo.png";
+import { useTheme } from "next-themes";
+import Image from "next/image";
 
 export const BatmanWeapon = () => {
-    const { theme } = useTheme();
+  const { theme } = useTheme();
 
-    if (theme !== 'dark') return null;
+  if (theme !== "dark") return null;
 
-    return (
-        <>
-            <div
-                className="pointer-events-none scale-100 fixed top-2/5 -left-22 z-25 hidden xl:block animate-in duration-1000 -rotate-22"
-                style={{
-                    opacity: 1,
-                    transform: 'scale(2) translateY(-10px) translateX(120px) rotate(14deg)',
-                    animationDelay: '2s',
-                    animationFillMode: 'both'
-                }}
-            >
-                <img
-                    alt="Batman Logo"
-                    className="h-[100px] w-[100px] object-contain opacity-50 mix-blend-screen"
-                    src={batmanWeapon.src}
-                />
-            </div>
-        </>
-    );
-}
+  return (
+    <>
+      <div
+        className="pointer-events-none scale-100 fixed top-2/5 -left-22 z-25 hidden xl:block animate-in duration-1000 -rotate-22"
+        style={{
+          opacity: 1,
+          transform:
+            "scale(2) translateY(-10px) translateX(120px) rotate(14deg)",
+          animationDelay: "2s",
+          animationFillMode: "both",
+        }}
+      >
+        {/* <img
+          alt="Batman Logo"
+          className="h-[100px] w-[100px] object-contain opacity-50 mix-blend-screen"
+          src={batmanWeapon.src}
+        /> */}
+        <Image
+          alt="Batman Logo"
+          height={100}
+          width={100}
+          className="opacity-50 mix-blend-screen"
+          src={batmanWeapon.src}
+        />
+      </div>
+    </>
+  );
+};
