@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
         </Link>
 
         <a
-          href="https://drive.google.com/file/d/17kyU8y4e8FrC-hhORWy5dKxAxJNRVcke/view?usp=sharing"
+          href="https://drive.google.com/file/d/1IuNswajsQSBmulxAiLNV0IMMPOVsEsnM/view?usp=sharing"
           download="Shubham_Shinde_Resume.pdf"
           className="flex items-center gap-2 hover:text-strong transition-colors"
         >

@@ -106,7 +106,7 @@ export default function Home() {
       );
     } else if (id === "resume") {
       window.open(
-        "https://drive.google.com/file/d/17kyU8y4e8FrC-hhORWy5dKxAxJNRVcke/view?usp=sharing",
+        "https://drive.google.com/file/d/1IuNswajsQSBmulxAiLNV0IMMPOVsEsnM/view?usp=sharing",
         "_blank",
       );
     } else {
